@@ -1,12 +1,6 @@
-// page.js
+"use client";
 
-import ForgotPass from "./Components/auth/ForgotPass";
-import Login from "./Components/auth/login";
-import Register from "./Components/auth/register";
-import Verification from "./Components/auth/Verification";
-import Landing from "./Components/Landing pages/landing";
-import Navbar from "./Components/Landing pages/Navbar";
-import Profile from "./Components/Landing pages/Profile";
+import Login from "./Components/auth/login/page";
 
 // async function getUsers() {
 //   const res = await fetch('http://localhost:3000/api/users', { cache: 'no-store' });
@@ -19,18 +13,18 @@ import Profile from "./Components/Landing pages/Profile";
 //   return users;
 // }
 
-export default async function HomePage() {
+export default  function HomePage() {
   
 
   return (
     <main>
         <Login />
-        <Register />
+        {/* <Register />
         <ForgotPass />
         <Verification />
         <Navbar />
         <Profile />
-        <Landing />
+        <Landing /> */}
     </main>
   );
 }

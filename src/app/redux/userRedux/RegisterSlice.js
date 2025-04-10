@@ -1,13 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 
+
 export const initialUserValidationState={
+
   UserAuth: false,
   validMobileNumber:false,
   otp:null,
   otpVerified:false,
   loginVerified:false,
   userid:null,
+  name:null,
   username:null,
   usermail:null,
   userPhoneNumber:null,
@@ -34,9 +37,19 @@ const userRegisterSlice = createSlice({
       state.Message = action.payload; // Store the error message
     },
     loginVerified:(state,action)=>{
-      console.log(action.payload)
-      state.loginVerified=true;
-      state.Message=action.payload;
+      console.log(action.payload, "ikkada"); // this contains message, user, token
+
+      state.loginVerified = true;
+      state.Message = action.payload.message;
+      
+      state.name = action.payload.user.name;
+      state.usermail = action.payload.user.mailid;
+      state.userPhoneNumber = action.payload.user.mobile_number;
+      state.token = action.payload.token;
+    
+      sessionStorage.setItem('token', action.payload.token);
+    
+
     },
     loginVerificationFailed:(state,action)=>{
       console.log(action.payload)

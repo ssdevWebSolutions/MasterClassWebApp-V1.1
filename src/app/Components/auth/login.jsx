@@ -1,165 +1,149 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+// import { Link, useNavigate } from "react-router-dom";
 import { onInitalLoad, userLoginVerification } from "../../redux/userRedux/RegisterAction";
+import { Eye, EyeOff } from "lucide-react";
 
 const Login = () => {
-  const navigate = useNavigate();
-  const dispatch=useDispatch();
-  const LoginStatus = useSelector((state) => state.user.loginVerified);
-  const Message = useSelector((state) => state.user.Message); 
+  // const navigate = useNavigate();
+  // const dispatch = useDispatch();
+  // const LoginStatus = useSelector((state) => state.user.loginVerified);
+  // const Message = useSelector((state) => state.user.Message);
+
   const [userStatus, setUserStatus] = useState(false);
-  const [userData, setUserData] = useState({
+  const [showPassword, setShowPassword] = useState(false);
+  const [formdata, setFormdata] = useState({
     emailOrMobile: "",
     password: "",
   });
+
   const [message, setMessage] = useState({
     type: "",
     text: "",
   });
 
-   useEffect(() => {
-      // console.log("intialLoad",userStatus,message);
-      dispatch(onInitalLoad());
-    }, []);
-
-    useEffect(() => {
-      if (LoginStatus) {
-        setUserStatus(true);
-    }
-  
-    if (LoginStatus && Message) {
-       // console.log("Successful message");
-        setMessage({ type: "success", text:Message });
-        navigate("/landing");
-       
-    } else if (!LoginStatus && Message) {
-       // console.log("Error message");
-        setMessage({ type: "error", text:Message });
-    }
-    }, [LoginStatus,Message]);
+  // useEffect(() => {
+  //   dispatch(onInitalLoad());
+  // }, []);
 
   // useEffect(() => {
-  //   if (message.text) {
-  //     const timer = setTimeout(() => {
-  //       setMessage({ type: "", text: "" });
-  //     }, 3000);
-  //     return () => clearTimeout(timer);
+  //   if (LoginStatus) {
+  //     setUserStatus(true);
   //   }
-  // }, [message.text]);
+
+  //   if (LoginStatus && Message) {
+  //     setMessage({ type: "success", text: Message });
+  //     navigate("/landing");
+  //   } else if (!LoginStatus && Message) {
+  //     setMessage({ type: "error", text: Message });
+  //   }
+  // }, [LoginStatus, Message]);
 
   const handleChange = (e) => {
-    setUserData({
-      ...userData,
+    setFormdata({
+      ...formdata,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (
-      !userData.emailOrMobile ||
-      !userData.password
-    ) {
+    if (!formdata.emailOrMobile || !formdata.password) {
       setMessage({ type: "error", text: "Please enter all the details!" });
       return;
     }
 
-    //console.log("Submitting Login Data:", userData);
-    
     const requestBody = {
-      emailOrmobile: userData.emailOrMobile,
-      password: userData.password,
+      emailOrmobile: formdata.emailOrMobile,
+      password: formdata.password,
     };
 
-    dispatch(userLoginVerification(requestBody));
-    // try {
-      
-
-    //   const response = await fetch("http://localhost:5001/api/validateusers", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(requestBody),
-    //   });
-
-    //   const result = await response.json();
-    //   console.log("Server Response:", result);
-    //   if(!response.ok){
-    //     setMessage({ type: "error", text: result.message});
-    //   }
-
-    //   if (response.ok) {
-    //     localStorage.setItem("Cricket-user", JSON.stringify(result));
-    //     navigate("/landing");
-    //     setUserData({ emailOrMobile: "", password: "" });
-    //     setMessage({ type: "success", text: result.message});
-    //   } else {
-    //     throw new Error(`Server Error: ${response.status} ${result.message || "Unknown Error"}`);
-    //   }
-    // } catch (error) {
-    //   console.error("Error:", error);
-    // }
+    // dispatch(userLoginVerification(requestBody));
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen w-full bg-gray-100">
-      <form className="bg-white p-10 w-full max-w-md rounded-lg shadow-lg" onSubmit={handleSubmit}>
-        <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
-          Login
-        </h2>
+    <div className="flex items-center justify-center min-h-screen bg-white">
+      <div className="bg-[#252525] p-8 rounded-3xl shadow-2xl w-full max-w-md relative" style={{ boxShadow: "0 0 20px rgba(255, 0, 0, 0.3)" }}>
+        <h2 className="text-white text-center text-xl font-semibold mb-2">Masterclass Cricket</h2>
+        <h1 className="text-white text-center text-3xl font-bold mb-1">Welcome Back!</h1>
+        <p className="text-center text-red-500 mb-6">Login to continue</p>
 
-        <div className="grid grid-cols-1 gap-4">
-          <div>
-            <label className="block text-sm font-bold text-gray-700">
-              Email or Mobile Number
-            </label>
+        {/* Message */}
+        {message.text && (
+          <div
+            className={`text-center text-sm font-medium py-2 mb-4 ${
+              message.type === "success" ? "text-green-400" : "text-red-400"
+            }`}
+          >
+            {message.text}
+          </div>
+        )}
+
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4 relative">
             <input
               type="text"
               name="emailOrMobile"
-              value={userData.emailOrMobile}
+              placeholder="Email or Phone"
+              value={formdata.emailOrMobile}
               onChange={handleChange}
-              placeholder="Enter your email or mobile number"
-              className="w-full px-4 py-2 border border-black rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-500"
+              className="w-full bg-[#252525] text-white placeholder-white border border-red-400 rounded-full py-2 px-4 focus:outline-none"
             />
           </div>
 
-          <div>
-            <label className="block text-sm font-bold text-gray-700">Password</label>
+          <div className="mb-4 relative">
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               name="password"
-              value={userData.password}
+              placeholder="Password"
+              value={formdata.password}
               onChange={handleChange}
-              placeholder="Enter your password"
-              className="w-full px-4 py-2 border border-black rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full bg-[#252525] text-white placeholder-white border border-red-400 rounded-full py-2 px-4 focus:outline-none"
             />
+            <div
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-300"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+            </div>
           </div>
-        </div>
 
-         {/* Error / Success Message */}
-         {message.text && (
-          <p className={`text-sm mt-4 text-center ${message.type === "error" ? "text-red-500" : "text-green-500"}`}>
-            {message.text}
-          </p>
-        )}
+          <div className="flex items-center justify-between text-sm mb-6">
+            <div className="flex items-center space-x-2">
+              <input type="checkbox" id="remember" className="w-4 h-4" />
+              <label htmlFor="remember" className="text-white text-xs">Remember Me</label>
+            </div>
+            {/* <Link to="/forgotpassword" className="text-red-500 text-xs" >Forgot Password?</Link> */}
+            <a href="#" className="text-red-400 hover:underline ml-1"> Forgot Password?</a>
+          </div>
 
-        <button
-          type="submit"
-          className="mt-6 w-full  bg-teal-700 text-white font-semibold py-2 rounded-md hover:bg-teal-800"
-        >
-          Login
-        </button>
+          <button
+            type="submit"
+            className="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-2 rounded-full mb-4"
+          >
+            Login
+          </button>
 
-        <p className="text-sm text-gray-700 mt-4 text-center">
-          Don't have an account?{" "}
-          <Link to="/register" className="text-blue-600 hover:underline">
-            Register
-          </Link>
-        </p>
-      </form>
+          <div className="text-center text-gray-400 text-sm mb-4">OR</div>
+
+          <button
+            type="button"
+            className="w-full bg-white text-black font-bold py-2 rounded-full"
+          >
+            Continue with Google
+          </button>
+
+           <p className="text-center text-xs text-gray-400 mt-3">
+              Don't have an account?
+              <a href="#" className="text-red-400 hover:underline ml-1"> Register</a>
+            </p>
+
+            
+       
+        </form>
+      </div>
     </div>
   );
 };

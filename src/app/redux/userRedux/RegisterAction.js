@@ -5,7 +5,7 @@ export const onInitalLoad=()=>async(dispatch)=>{
   dispatch(registerInitialLoad())
 }
 
-export const userRegisteration = (userData) => async (dispatch) => {
+export const registerUser = (userData) => async (dispatch) => {
   console.log("user data action", userData);
   try {
     const response = await requestFromServer.userRegisteration(userData);
@@ -20,10 +20,11 @@ export const userRegisteration = (userData) => async (dispatch) => {
 export const userLoginVerification=(userData)=>async(dispatch)=>
 {
   let response;
+  
   try {
    response = await requestFromServer.userLoginVerification(userData);
     console.log("response", response);
-    dispatch(loginVerified(response.data.message));
+    dispatch(loginVerified(response.data));
   } catch (error) {
     console.log("Error in posting data:", error);
 

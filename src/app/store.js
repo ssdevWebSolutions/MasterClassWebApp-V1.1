@@ -1,5 +1,5 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { persistStore, persistReducer } from 'redux-persist';
+import { persistStore, persistReducer } from 'redux-persist'; // <-- This line was missing
 import storage from 'redux-persist/lib/storage';
 import userRegisterSlice from './redux/userRedux/RegisterSlice';
 
@@ -11,20 +11,20 @@ const persistConfig = {
 
 // Combine reducers
 const rootReducer = combineReducers({
-  user:userRegisterSlice
+  user: userRegisterSlice,
 });
 
 // Persisted reducer
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+const persistedReducer = persistReducer(persistConfig, rootReducer); // <-- fixed here
 
 // Configure store
 const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
-      serializableCheck:false,
+      serializableCheck: false,
     }),
 });
 
-export const persistor = persistStore(store); 
+export const persistor = persistStore(store);
 export default store;

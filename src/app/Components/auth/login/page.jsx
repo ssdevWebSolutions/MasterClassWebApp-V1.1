@@ -1,15 +1,18 @@
-"use client";
+"use client"; 
+
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-// import { Link, useNavigate } from "react-router-dom";
-import { onInitalLoad, userLoginVerification } from "../../redux/userRedux/RegisterAction";
+import { onInitalLoad, userLoginVerification } from "../../../redux/userRedux/RegisterAction";
 import { Eye, EyeOff } from "lucide-react";
+import { useDispatch, useSelector } from "react-redux";
+import { useRouter  } from "next/navigation"; 
+import Link from 'next/link';
 
 const Login = () => {
-  // const navigate = useNavigate();
-  // const dispatch = useDispatch();
-  // const LoginStatus = useSelector((state) => state.user.loginVerified);
-  // const Message = useSelector((state) => state.user.Message);
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const LoginStatus = useSelector((state) => state.user.loginVerified);
+  const Message = useSelector((state) => state.user.Message);
+
 
   const [userStatus, setUserStatus] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -23,22 +26,22 @@ const Login = () => {
     text: "",
   });
 
-  // useEffect(() => {
-  //   dispatch(onInitalLoad());
-  // }, []);
+  useEffect(() => {
+    dispatch(onInitalLoad());
+  }, [dispatch]);
 
-  // useEffect(() => {
-  //   if (LoginStatus) {
-  //     setUserStatus(true);
-  //   }
+  useEffect(() => {
+    if (LoginStatus) {
+      setUserStatus(true);
+    }
 
-  //   if (LoginStatus && Message) {
-  //     setMessage({ type: "success", text: Message });
-  //     navigate("/landing");
-  //   } else if (!LoginStatus && Message) {
-  //     setMessage({ type: "error", text: Message });
-  //   }
-  // }, [LoginStatus, Message]);
+    if (LoginStatus && Message) {
+      setMessage({ type: "success", text: Message });
+      router.push("/Components/Home/landingPage");
+    } else if (!LoginStatus && Message) {
+      setMessage({ type: "error", text: Message });
+    }
+  }, [LoginStatus, Message, router]);
 
   const handleChange = (e) => {
     setFormdata({
@@ -47,21 +50,23 @@ const Login = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     if (!formdata.emailOrMobile || !formdata.password) {
       setMessage({ type: "error", text: "Please enter all the details!" });
       return;
     }
-
+  
     const requestBody = {
       emailOrmobile: formdata.emailOrMobile,
       password: formdata.password,
     };
-
-    // dispatch(userLoginVerification(requestBody));
+  
+    dispatch(userLoginVerification(requestBody));
   };
+  
+
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-white">
@@ -116,7 +121,9 @@ const Login = () => {
               <label htmlFor="remember" className="text-white text-xs">Remember Me</label>
             </div>
             {/* <Link to="/forgotpassword" className="text-red-500 text-xs" >Forgot Password?</Link> */}
-            <a href="#" className="text-red-400 hover:underline ml-1"> Forgot Password?</a>
+            <Link href="/Components/auth/forgotPass" className="text-red-400 hover:underline ml-1">
+                Forgot Password?
+              </Link>   
           </div>
 
           <button
@@ -137,7 +144,9 @@ const Login = () => {
 
            <p className="text-center text-xs text-gray-400 mt-3">
               Don't have an account?
-              <a href="#" className="text-red-400 hover:underline ml-1"> Register</a>
+              <Link href="/Components/auth/register" className="text-red-400 hover:underline ml-1">
+                Register
+              </Link>            
             </p>
 
             

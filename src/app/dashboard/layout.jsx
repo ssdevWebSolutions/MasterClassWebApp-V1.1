@@ -1,51 +1,33 @@
-// File Path: app/dashboard/layout.jsx
+import Sidebar from "../Components/HomePage/Sidebar";
+import Footer from "../Components/HomePage/Footer";
+import Header from "../Components/HomePage/Header";
 
-"use client";
-
-import React from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import clsx from "clsx";
-
-const navItems = [
-  { name: "Home", path: "/dashboard" },
-  { name: "Bookings", path: "/dashboard/bookings" },
-  { name: "Reports", path: "/dashboard/reports" },
-  { name: "Media", path: "/dashboard/media" },
-  { name: "Nutrition", path: "/dashboard/nutrition" },
-  { name: "Conditioning", path: "/dashboard/conditioning" },
-  { name: "Match Stats", path: "/dashboard/match-stats" },
-  { name: "Store", path: "/dashboard/store" },
-  { name: "Partners", path: "/dashboard/partners" },
-  { name: "Motion Tracker", path: "/dashboard/skeleton-tracker" },
-  { name: "Chat", path: "/dashboard/chat" },
-  { name: "Profile", path: "/dashboard/profile" },
+const footerLinks = [
+  { label: "Privacy Policy", href: "#" },
+  { label: "Terms of Service", href: "#" },
+  { label: "Support", href: "#" },
 ];
 
 export default function DashboardLayout({ children }) {
-  const pathname = usePathname();
-
   return (
-    <div className="min-h-screen grid grid-cols-[250px_1fr]">
-      <aside className="bg-gray-100 p-4 border-r">
-        <h1 className="text-2xl font-bold mb-6">🏏 Masterclass</h1>
-        <nav className="flex flex-col gap-3">
-          {navItems.map((item) => (
-            <Link
-              key={item.path}
-              href={item.path}
-              className={clsx(
-                "text-sm font-medium px-3 py-2 rounded hover:bg-gray-200 transition",
-                pathname === item.path ? "bg-gray-300 text-black" : "text-gray-700"
-              )}
-            >
-              {item.name}
-            </Link>
-          ))}
-        </nav>
-      </aside>
+    <div className="flex h-screen overflow-hidden bg-white">
+      {/* Sidebar stays fixed */}
+      <Sidebar />
 
-      <main className="p-6 bg-white overflow-y-auto">{children}</main>
+      {/* Right side: header, main content (scrollable), footer */}
+      <div className="flex-1 flex flex-col overflow-hidden">
+        <Header
+          userName="Samuel"
+          message="Ready to master your next session?"
+        />
+
+        {/* Scrollable content area */}
+        <main className="flex-1 overflow-y-auto p-6 md:p-8 space-y-12">
+          {children}
+        </main>
+
+        {/* <Footer title="Cricket Masterclass" links={footerLinks} /> */}
+      </div>
     </div>
   );
 }

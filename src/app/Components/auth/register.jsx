@@ -1,66 +1,211 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import InactivityPopup from "../InactivityPopup";
-import { useDispatch, useSelector } from "react-redux";
-import { onInitalLoad, userRegisteration } from "../../redux/userRedux/RegisterAction";
+// import React, { useState, useEffect } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { Link, useNavigate } from 'react-router-dom';
+
+// import { onInitalLoad, userRegisteration } from "../../redux/userRedux/RegisterAction";
+
+
+// const Register = () => {
+//   const dispatch = useDispatch();
+//   const navigate = useNavigate();
+
+//   const [userStatus, setUserStatus] = useState(false);
+//   const [message, setMessage] = useState({ type: "", text: "" });
+
+//   const RegistrationStatus = useSelector((state) => state.user.UserAuth);
+//   const Message = useSelector((state) => state.user.Message);
+
+//   useEffect(() => {
+//     dispatch(onInitalLoad());
+//   }, [dispatch]);
+
+//   useEffect(() => {
+//     if (Message) {
+//       if (RegistrationStatus) {
+//         setUserStatus(true);
+//         setMessage({ type: "success", text: Message });
+        
+//         // Navigate after slight delay for better UX
+//         setTimeout(() => {
+//           navigate("/login");
+//         }, 1000);
+//       } else {
+//         setMessage({ type: "error", text: Message });
+//       }
+//     }
+//   }, [RegistrationStatus, Message, navigate]);
+
+//   const [formData, setFormData] = useState({
+//     name: '',
+//     email: '',
+//     mobileNumber: '',
+//     password: '',
+//     confirmPassword: '',
+//   });
+
+//   const handleChange = (e) => {
+//     setFormData({ ...formData, [e.target.name]: e.target.value });
+//   };
+
+//   const validateUserData = (userData) => {
+//     if (
+//       !userData.name ||
+//       !userData.email ||
+//       !userData.mobileNumber ||
+//       !userData.password ||
+//       !userData.confirmPassword
+//     ) {
+//       return { type: "error", text: "Please enter all the details!" };
+//     }
+
+//     if (userData.password !== userData.confirmPassword) {
+//       return { type: "error", text: "Passwords do not match!" };
+//     }
+
+//     if (!/^\d{10}$/.test(userData.mobileNumber)) {
+//       return { type: "error", text: "Invalid mobile number! Must be 10 digits." };
+//     }
+
+//     return null;
+//   };
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+
+//     const validationError = validateUserData(formData);
+
+//     if (validationError) {
+//       setMessage(validationError);
+//       return;
+//     }
+
+//     const requestBody = {
+//       name: formData.name,
+//       mail: formData.email,
+//       mobile: formData.mobileNumber,
+//       password: formData.password,
+//     };
+
+//     dispatch(userRegisteration(requestBody));
+//   };
+
+//   return (
+//     <div className="min-h-screen flex items-center justify-center bg-[#111]">
+//     <div className="bg-[#2e2e2e] p-6 rounded-xl shadow-lg w-full max-w-sm">
+//       <h2 className="text-xl font-semibold text-white mb-4">Register</h2>
+  
+//       {message.text && (
+//         <div className={`mb-3 p-2 rounded-md text-xs font-medium ${message.type === "success" ? "text-green-400" : "text-red-400"}`}>
+//           {message.text}
+//         </div>
+//       )}
+  
+//       <form onSubmit={handleSubmit} className="space-y-4">
+//         <div>
+//           <label className="block text-sm text-white mb-1">Name</label>
+//           <input
+//             type="text"
+//             name="name"
+//             value={formData.name}
+//             onChange={handleChange}
+//             placeholder="Enter your name"
+//             className="w-full px-3 py-2 rounded-md text-gray-300 text-sm placeholder-gray-500 focus:outline-none"
+//           />
+//         </div>
+  
+//         <div>
+//           <label className="block text-sm text-white mb-1">Email</label>
+//           <input
+//             type="email"
+//             name="email"
+//             value={formData.email}
+//             onChange={handleChange}
+//             placeholder="Enter your email"
+//             className="w-full px-3 py-2 rounded-md text-gray-300 text-sm placeholder-gray-500 focus:outline-none"
+//           />
+//         </div>
+  
+//         <div>
+//           <label className="block text-sm text-white mb-1">Mobile Number</label>
+//           <input
+//             type="text"
+//             name="mobileNumber"
+//             value={formData.mobileNumber}
+//             onChange={handleChange}
+//             placeholder="Enter your mobile number"
+//             className="w-full px-3 py-2 rounded-md text-gray-300 text-sm placeholder-gray-500 focus:outline-none"
+//           />
+//         </div>
+  
+//         <div>
+//           <label className="block text-sm text-white mb-1">Password</label>
+//           <input
+//             type="password"
+//             name="password"
+//             value={formData.password}
+//             onChange={handleChange}
+//             placeholder="Enter your password"
+//             className="w-full px-3 py-2 rounded-md text-gray-300 text-sm placeholder-gray-500 focus:outline-none"
+//           />
+//         </div>
+  
+//         <div>
+//           <label className="block text-sm text-white mb-1">Confirm Password</label>
+//           <input
+//             type="password"
+//             name="confirmPassword"
+//             value={formData.confirmPassword}
+//             onChange={handleChange}
+//             placeholder="Confirm your password"
+//             className="w-full px-3 py-2 rounded-md text-gray-300 text-sm placeholder-gray-500 focus:outline-none"
+//           />
+//         </div>
+  
+//         <button
+//           type="submit"
+//           className="w-full bg-white text-black text-sm font-semibold py-2 rounded-md hover:bg-gray-300 transition-all"
+//         >
+//           Register
+//         </button>
+  
+//         <p className="text-center text-xs text-gray-400 mt-3">
+//           Already registered? 
+//           <a href="#" className="text-red-400 hover:underline ml-1"> <Link to="/login">Login</Link></a>
+         
+//         </p>
+//       </form>
+//     </div>
+//   </div>
+  
+//   );
+// };
+
+// export default Register;
+
+"use client";
+
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const Register = () => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const router = useRouter();
+
   const [userStatus, setUserStatus] = useState(false);
   const [message, setMessage] = useState({ type: "", text: "" });
-  const RegistrationStatus = useSelector((state) => state.user.UserAuth);
-  const Message = useSelector((state) => state.user.Message); 
 
-  useEffect(() => {
-    // console.log("intialLoad",userStatus,message);
-    dispatch(onInitalLoad());
-  }, []);
-
-
-
-useEffect(() => {
-//console.log("2nd useeffect",RegistrationStatus,Message);
-  
-  if (RegistrationStatus) {
-      setUserStatus(true);
-  }
-
-  if (RegistrationStatus && Message) {
-     // console.log("Successful message");
-      setMessage({ type: "success", text:Message });
-      navigate("/login")
-  } else if (!RegistrationStatus && Message) {
-     // console.log("Error message");
-      setMessage({ type: "error", text:Message });
-  }
-}, [RegistrationStatus,Message]);
-
-  
-  
-  
-
-  
-
-  const [userData, setUserData] = useState({
-    name: "",
-    email: "",
-    mobileNumber: "",
-    password: "",
-    confirmPassword: "",
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    mobileNumber: '',
+    password: '',
+    confirmPassword: '',
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUserData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
+  const validateUserData = (userData) => {
     if (
       !userData.name ||
       !userData.email ||
@@ -68,120 +213,148 @@ useEffect(() => {
       !userData.password ||
       !userData.confirmPassword
     ) {
-      setMessage({ type: "error", text: "Please enter all the details!" });
-      return;
+      return { type: "error", text: "Please enter all the details!" };
     }
 
     if (userData.password !== userData.confirmPassword) {
-      setMessage({ type: "error", text: "Passwords do not match!" });
-      return;
+      return { type: "error", text: "Passwords do not match!" };
     }
 
     if (!/^\d{10}$/.test(userData.mobileNumber)) {
-      setMessage({ type: "error", text: "Invalid mobile number!" });
+      return { type: "error", text: "Invalid mobile number! Must be 10 digits." };
+    }
+
+    return null;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const validationError = validateUserData(formData);
+    if (validationError) {
+      setMessage(validationError);
       return;
     }
 
-    const requestBody = {
-      name: userData.name,
-      mail: userData.email,
-      mobile: userData.mobileNumber,
-      password: userData.password,
-    };
+    try {
+      // Simulate API call (replace with real API later)
+      const response = await fakeRegisterApi(formData);
 
-    dispatch(userRegisteration(requestBody));
+      if (response.success) {
+        setUserStatus(true);
+        setMessage({ type: "success", text: response.message });
+
+        setTimeout(() => {
+          router.push("/login");
+        }, 1000);
+      } else {
+        setMessage({ type: "error", text: response.message });
+      }
+    } catch (error) {
+      setMessage({ type: "error", text: "Something went wrong. Please try again." });
+    }
+  };
+
+  const fakeRegisterApi = async (data) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({ success: true, message: "Registration successful! Please login." });
+      }, 800);
+    });
+  };
+
+  const handleLoginRedirect = (e) => {
+    e.preventDefault();
+    router.push("/login");
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
-      <form className="bg-white p-10 w-full max-w-2xl rounded-lg shadow-lg" onSubmit={handleSubmit}>
-        <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
-          Registration
-        </h2>
+    <div className="min-h-screen flex items-center justify-center bg-[#111]">
+      <div className="bg-[#2e2e2e] p-6 rounded-xl shadow-lg w-full max-w-sm">
+        <h2 className="text-xl font-semibold text-white mb-4">Register</h2>
 
-        <div className="grid grid-cols-1 gap-4">
+        {message.text && (
+          <div className={`mb-3 p-2 rounded-md text-xs font-medium ${message.type === "success" ? "text-green-400" : "text-red-400"}`}>
+            {message.text}
+          </div>
+        )}
+
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-bold text-gray-700">Name</label>
+            <label className="block text-sm text-white mb-1">Name</label>
             <input
               type="text"
               name="name"
-              value={userData.name}
+              value={formData.name}
               onChange={handleChange}
               placeholder="Enter your name"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 rounded-md text-gray-300 text-sm placeholder-gray-500 focus:outline-none"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-bold text-gray-700">Email</label>
+            <label className="block text-sm text-white mb-1">Email</label>
             <input
               type="email"
               name="email"
-              value={userData.email}
+              value={formData.email}
               onChange={handleChange}
               placeholder="Enter your email"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 rounded-md text-gray-300 text-sm placeholder-gray-500 focus:outline-none"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-bold text-gray-700">Mobile Number</label>
+            <label className="block text-sm text-white mb-1">Mobile Number</label>
             <input
               type="text"
               name="mobileNumber"
-              value={userData.mobileNumber}
+              value={formData.mobileNumber}
               onChange={handleChange}
               placeholder="Enter your mobile number"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 rounded-md text-gray-300 text-sm placeholder-gray-500 focus:outline-none"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-bold text-gray-700">Password</label>
+            <label className="block text-sm text-white mb-1">Password</label>
             <input
               type="password"
               name="password"
-              value={userData.password}
+              value={formData.password}
               onChange={handleChange}
               placeholder="Enter your password"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 rounded-md text-gray-300 text-sm placeholder-gray-500 focus:outline-none"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-bold text-gray-700">Confirm Password</label>
+            <label className="block text-sm text-white mb-1">Confirm Password</label>
             <input
               type="password"
               name="confirmPassword"
-              value={userData.confirmPassword}
+              value={formData.confirmPassword}
               onChange={handleChange}
-              placeholder="Re-enter your password"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+              placeholder="Confirm your password"
+              className="w-full px-3 py-2 rounded-md text-gray-300 text-sm placeholder-gray-500 focus:outline-none"
             />
           </div>
-        </div>
 
-        {message.text && (
-          <p className={`text-sm mt-4 text-center ${message.type === "error" ? "text-red-500" : "text-green-500"}`}>
-            {message.text}
+          <button
+            type="submit"
+            className="w-full bg-white text-black text-sm font-semibold py-2 rounded-md hover:bg-gray-300 transition-all"
+          >
+            Register
+          </button>
+
+          <p className="text-center text-xs text-gray-400 mt-3">
+            Already registered?
+            <a href="#" onClick={handleLoginRedirect} className="text-red-400 hover:underline ml-1">
+              Login
+            </a>
           </p>
-        )}
-
-        <button
-          type="submit"
-          className="mt-6 w-full bg-teal-700 text-white font-semibold py-2 rounded-md hover:bg-teal-800"
-        >
-          Register
-        </button>
-
-        <p className="text-sm text-gray-700 mt-4 text-center">
-          Already have an account?{" "}
-          <span className="text-blue-600 cursor-pointer">
-            <Link to="/login">Login</Link>
-          </span>
-        </p>
-      </form>
-      <InactivityPopup />
+        </form>
+      </div>
     </div>
   );
 };

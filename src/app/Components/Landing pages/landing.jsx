@@ -1,16 +1,54 @@
+"use client";
+
 import React from 'react';
+// import { useSelector } from 'react-redux';
+import { FaCheckCircle, FaStar, FaUserCircle } from 'react-icons/fa'; // Using react-icons for icons
+import Navbar from './Navbar';
+import { User } from 'lucide-react';
 
 const Landing = () => {
+  // const token = useSelector((state) => state.user.token) || sessionStorage.getItem('token');
+  // const user = useSelector((state) => state.user.datas.users);
+
+  
+  
+
+  // console.log(user, "veedey");
+  // console.log(token, "vasthundhiii mowa");
+
+
   return (
-    <div className="flex items-center justify-center min-h-screen min-w-screen bg-gradient-to-r from-blue-500 to-teal-500 overflow-auto">
-      <div className="bg-white shadow-lg rounded-2xl p-10 text-center">
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">Vanakkam Mowa 👋</h1>
-        <p className="text-gray-600 text-lg">Welcome to your landing page! 🚀</p>
-        <button className="mt-6 px-6 py-3 bg-blue-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-blue-700 transition">
-          Get Started
+    <>
+    
+    <div className="max-w-5xl mx-auto p-10">
+      <Navbar />
+    </div>
+    <div className="flex items-center justify-center min-h-screen bg-black overflow-auto">
+      <div className="flex flex-col items-center space-y-6">
+        
+        {/* Icons */}
+        <div className="relative flex items-center justify-center">
+          <FaStar className="text-white text-3xl absolute left-[-40px] top-[-20px]" />
+          <FaCheckCircle className="text-white text-6xl" />
+          <FaUserCircle className="text-white text-4xl absolute right-[-40px] top-[-20px]" />
+        </div>
+
+        {/* Texts */}
+        <h1 className="text-2xl md:text-3xl font-bold text-white text-center">
+          Welcome to Masterclass Cricket!
+        </h1> 
+        {/* <p className="text-lg font-semibold text-emerald-50 text-grey-600 flex items-center gap-1.5 ">  <User size={25} /> {user[0].name}</p> */}
+        <p className="text-gray-300 text-center max-w-md">
+          Your registration is complete. Explore our platform and enjoy the benefits.
+        </p>
+
+        {/* Button */}
+        <button className="mt-8 px-8 py-3 bg-red-500 text-white font-semibold rounded-full hover:bg-red-600 transition text-lg">
+          Go to Login
         </button>
       </div>
     </div>
+    </>
   );
 };
 

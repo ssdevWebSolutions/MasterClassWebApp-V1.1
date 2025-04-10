@@ -1,29 +1,36 @@
 // page.js
 
-async function getUsers() {
-  const res = await fetch('http://localhost:3000/api/users', { cache: 'no-store' });
+import ForgotPass from "./Components/auth/ForgotPass";
+import Login from "./Components/auth/login";
+import Register from "./Components/auth/register";
+import Verification from "./Components/auth/Verification";
+import Landing from "./Components/Landing pages/landing";
+import Navbar from "./Components/Landing pages/Navbar";
+import Profile from "./Components/Landing pages/Profile";
 
-  if (!res.ok) {
-    throw new Error('Failed to fetch users');
-  }
+// async function getUsers() {
+//   const res = await fetch('http://localhost:3000/api/users', { cache: 'no-store' });
 
-  const users = await res.json();
-  return users;
-}
+//   if (!res.ok) {
+//     throw new Error('Failed to fetch users');
+//   }
+
+//   const users = await res.json();
+//   return users;
+// }
 
 export default async function HomePage() {
-  const users = await getUsers();
+  
 
   return (
     <main>
-      <h1>Users List</h1>
-      <ul>
-        {users.map((user) => (
-          <li key={user.userid}>
-            {user.name} - {user.mailid} - {user.mobile_number}
-          </li>
-        ))}
-      </ul>
+        <Login />
+        <Register />
+        <ForgotPass />
+        <Verification />
+        <Navbar />
+        <Profile />
+        <Landing />
     </main>
   );
 }

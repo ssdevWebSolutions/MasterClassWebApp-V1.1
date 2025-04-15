@@ -39,6 +39,7 @@ export default function Sidebar() {
       <ul className="space-y-4">
         {sidebarItems.map((item, i) => (
           <li key={i} className="flex items-center space-x-3 text-gray-700 hover:text-black cursor-pointer">
+          <Link href={item.href} className="flex items-center space-x-3 text-gray-700 hover:text-black cursor-pointer">
             {isOpen ? (
               <div className="flex items-center space-x-3">
                 {item.icon}
@@ -47,6 +48,8 @@ export default function Sidebar() {
             ) : (
               <span>{item.icon}</span>
             )}
+          
+          </Link>
           </li>
         ))}
       </ul>

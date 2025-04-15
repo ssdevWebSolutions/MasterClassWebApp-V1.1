@@ -10,7 +10,7 @@ const footerLinks = [
 
 export default function DashboardLayout({ children }) {
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="flex h-screen">
       {/* Sidebar stays fixed */}
       <Sidebar />
 

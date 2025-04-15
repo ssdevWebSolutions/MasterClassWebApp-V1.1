@@ -73,12 +73,15 @@ const performanceTrendsData = [
 export default function DashboardPage() {
   return (
     <>
-    <UpcomingSessions sessions={upcomingSessionsData} />
-      <QuickStats stats={quickStatsData}/>
-      <PerformanceOverview data={performanceData} />
-      <NutritionFitness stats={nutritionData} />
-      <PerformanceTrends data={performanceTrendsData} />
-      <MediaHighlights />
+    
+        <UpcomingSessions sessions={upcomingSessionsData} />
+        <QuickStats stats={quickStatsData}/>
+        <PerformanceOverview data={performanceData} />
+        <NutritionFitness stats={nutritionData} />
+        <PerformanceTrends data={performanceTrendsData} />
+        <MediaHighlights />
+   
+      
     </>
   );
 }

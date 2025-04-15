@@ -1,23 +1,27 @@
 // File: HomePage/Sidebar.js
 "use client"
-import { Home, Calendar, BarChart, Play, Heart, Dumbbell, Activity, ShoppingBag, Users, MessageSquare, Settings, Brain, Menu, icons, User } from 'lucide-react';
+import { Home, Calendar, BarChart, Play, Heart, Dumbbell, Activity, ShoppingBag, Users, MessageSquare, Settings, Brain, Menu, icons, User, PersonStanding } from 'lucide-react';
 import { useState } from 'react';
+import Link from 'next/link';
 
 const sidebarItems = [
-  { icon: <Home />, label: 'Dashboard' },
-  { icon: <Calendar />, label: 'Bookings' },
-  { icon: <BarChart />, label: 'Reports' },
-  { icon: <Play />, label: 'Media' },
-  { icon: <Heart />, label: 'Nutrition' },
-  { icon: <Dumbbell />, label: 'Fitness' },
-  { icon: <Activity />, label: 'Performance' },
-  { icon: <ShoppingBag />, label: 'Store' },
-  { icon: <Users />, label: 'Partners' },
-  { icon: <MessageSquare />, label: 'Chat' },
-  { icon: <Brain />, label: 'Skeleton Tracking' },
-  { icon: <Settings />, label: 'Settings' },
+  { icon: <Home />, label: 'Dashboard', href: '/dashboard' },
+  { icon: <Calendar />, label: 'Bookings', href: '/Components/HomePage/Booking' },
+  { icon: <BarChart />, label: 'Reports', href: '/reports' },
+  { icon: <Play />, label: 'Media', href: '/Components/HomePage/Media' },
+  { icon: <Heart />, label: 'Nutrition', href: '/nutrition' },
+  { icon: <Dumbbell />, label: 'Fitness', href: '/Components/HomePage/Fitness' },
+  { icon: <Activity />, label: 'Performance', href: '/performance' },
+  { icon: <ShoppingBag />, label: 'Store', href: '/store' },
+  { icon: <Users />, label: 'Partners', href: '/partners' },
+  { icon: <MessageSquare />, label: 'Chat', href: '/chat' },
+  { icon: <Brain />, label: 'Skeleton Tracking', href: '/skeleton-tracking' },
+  { icon: <PersonStanding />, label: 'Profile', href: '/profile' },
+  { icon: <Settings />, label: 'Settings', href: '/settings' },
+ 
   { icon: <User />, label: 'Profile' },
 ];
+
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);

@@ -175,7 +175,7 @@ const Register = () => {
   
         <p className="text-center text-xs text-gray-400 mt-3">
           Already registered? 
-          <Link href="/login" className="text-red-400 hover:underline ml-1">
+          <Link href="/Components/auth/login" className="text-red-400 hover:underline ml-1">
             Login
           </Link> 
         </p>

@@ -37,7 +37,7 @@ const Login = () => {
 
     if (LoginStatus && Message) {
       setMessage({ type: "success", text: Message });
-      router.push("/Components/Home/landingPage");
+      router.push("/dashboard");
     } else if (!LoginStatus && Message) {
       setMessage({ type: "error", text: Message });
     }

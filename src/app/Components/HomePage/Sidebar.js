@@ -6,28 +6,28 @@ import Link from 'next/link';
 
 const sidebarItems = [
   { icon: <Home />, label: 'Dashboard', href: '/dashboard' },
-  { icon: <Calendar />, label: 'Bookings', href: '/Components/HomePage/Booking' },
+  { icon: <Calendar />, label: 'Bookings', href: '/booking' },
   { icon: <BarChart />, label: 'Reports', href: '/reports' },
-  { icon: <Play />, label: 'Media', href: '/Components/HomePage/Media' },
+  { icon: <Play />, label: 'Media', href: '/Media' },
   { icon: <Heart />, label: 'Nutrition', href: '/nutrition' },
-  { icon: <Dumbbell />, label: 'Fitness', href: '/Components/HomePage/Fitness' },
+  { icon: <Dumbbell />, label: 'Fitness', href: '/fitness' },
   { icon: <Activity />, label: 'Performance', href: '/performance' },
   { icon: <ShoppingBag />, label: 'Store', href: '/store' },
   { icon: <Users />, label: 'Partners', href: '/partners' },
   { icon: <MessageSquare />, label: 'Chat', href: '/chat' },
   { icon: <Brain />, label: 'Skeleton Tracking', href: '/skeleton-tracking' },
-  { icon: <PersonStanding />, label: 'Profile', href: '/profile' },
+  { icon: <User/>, label: 'Profile', href: '/profile' },
   { icon: <Settings />, label: 'Settings', href: '/settings' },
- 
-  { icon: <User />, label: 'Profile' },
 ];
 
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <aside className={`bg-[#FFF5EF] ${isOpen ? 'w-64' : 'w-20'} h-screen p-4 flex flex-col justify-between transition-all duration-300`}>      <div>
+    <aside className={`bg-[#FFF5EF] ${isOpen ? 'w-64' : 'w-20'} h-screen p-4 flex flex-col justify-between transition-all duration-300 overflow-y-auto`}>  
+      
       {/* Toggle Button */}
+      <div className="flex-grow overflow-y-auto">
       <div className="flex justify-between items-center mb-6">
 
         {isOpen && <h1 className="text-xl font-bold">Cricket Masterclass</h1>}
@@ -59,6 +59,7 @@ export default function Sidebar() {
         <p>Batsman</p>
         <User/>
       </div> */}
+    
     </aside>
   );
 }

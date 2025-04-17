@@ -1,7 +1,7 @@
 
-import Footer from "../Footer";
-import Header from "../Header";
-
+import Sidebar from "@/app/Components/HomePage/Sidebar";
+// import Footer from "../Footer";
+// import Header from "../Header";
 
 const footerLinks = [
   { label: "Privacy Policy", href: "#" },
@@ -13,7 +13,7 @@ export default function DashboardLayout({ children }) {
   return (
     <div className="flex h-screen overflow-hidden">
       {/* Sidebar stays fixed */}
-      
+      <Sidebar />
 
       {/* Right side: header, main content (scrollable), footer */}
       <div className="flex-1 flex flex-col overflow-hidden">

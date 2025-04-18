@@ -1,0 +1,77 @@
+.dashboard-container {
+    padding: 1rem;
+    font-family: 'Arial', sans-serif;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  h2, h3 {
+    margin-bottom: 1rem;
+  }
+  
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+  
+  .card {
+    background: #fff5f5;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    flex: 1 1 calc(33.33% - 1rem);
+    min-width: 250px;
+  }
+  
+  .btn {
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    margin-top: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .performance-trends .bar-chart {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+    height: 150px;
+    margin-top: 1rem;
+  }
+  
+  .bar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .bar {
+    width: 30px;
+    background-color: black;
+    transition: height 0.3s;
+  }
+  
+  .bar-container span {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .card {
+      flex: 1 1 100%;
+    }
+  
+    .bar {
+      width: 20px;
+    }
+  
+    .performance-trends .bar-chart {
+      justify-content: space-between;
+    }
+  }
+  

@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const sidebarItems = [
   { icon: <Home />, label: 'Dashboard', href: '/dashboard' },
-  { icon: <Calendar />, label: 'Bookings', href: '/booking' },
+  { icon: <Calendar />, label: 'Bookings', href: '/Booking' },
   { icon: <BarChart />, label: 'Reports', href: '/reports' },
   { icon: <Play />, label: 'Media', href: '/Media' },
   { icon: <Heart />, label: 'Nutrition', href: '/nutrition' },

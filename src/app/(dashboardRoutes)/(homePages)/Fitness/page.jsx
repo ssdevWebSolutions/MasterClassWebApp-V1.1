@@ -2,8 +2,9 @@
 
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { CalendarDays, LineChart, Dumbbell, Lock } from "lucide-react";
-import { Button } from "../../ui/button";
+// import { Button } from "../../ui/button";
 import dynamic from "next/dynamic";
+import { Button } from "@/app/Components/ui/button";
 
 export default function FitnessPage() {
 

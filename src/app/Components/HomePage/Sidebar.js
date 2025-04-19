@@ -24,7 +24,7 @@ const sidebarItems = [
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <aside className={`bg-[#FFF5EF] ${isOpen ? 'w-64' : 'w-20'} h-screen p-4 flex flex-col justify-between transition-all duration-300 overflow-y-auto`}>  
+    <aside className={`bg-[#FFF5EF] ${isOpen ? 'w-64' : 'w-16'} md:${isOpen ? 'w-64' : 'w-20'} h-screen p-4 flex flex-col justify-between transition-all duration-300`}>
       
       {/* Toggle Button */}
       <div className="flex-grow overflow-y-auto">

@@ -1,0 +1,156 @@
+.food-logger {
+    padding: 1.5rem;
+  }
+  
+  .food-logger h1 {
+    font-size: 1.25rem; /* text-xl */
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .tabs-list {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .tabs-trigger {
+    border-bottom: 2px solid transparent;
+    padding-bottom: 0.25rem;
+    cursor: pointer;
+  }
+  
+  [data-state="active"] {
+    border-bottom: 2px solid #10b981;
+    font-weight: 600;
+  }
+  
+  .recent-tab {
+    display: grid;
+    gap: 1rem;
+    margin-bottom:10%;
+  }
+  .custom-food-form {
+    margin-top: 2rem;
+    background: #fff;
+    padding: 1.5rem;
+    max-width:100%;
+  }
+  
+  .custom-food-form h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  
+  .form-group input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .form-row .form-group {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .radio-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  
+  .addBtn{
+    background-color: #ff3b3b;
+  }
+  .submit-button {
+    margin-top: 1rem;
+    width: 100%;
+    background-color: #ff3b3b;
+  }
+  
+  .food-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+  
+  .food-info {
+    font-weight: 600;
+  }
+  
+  .food-details {
+    font-size: 0.875rem;
+    color: #6b7280;
+  }
+  
+  .meal-summary {
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .meal-summary-title {
+    font-weight: 600;
+    color: #ef4444;
+  }
+  
+  .meal-summary-details {
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+  }
+
+  .search-bar-wrapper {
+    position: relative;
+    max-width: 90%;
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 10px 16px 10px 40px; /* padding-left for icon space */
+    font-size: 15px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    background-color: #f9fafb;
+    color: #111827;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    margin-top: 10px;
+  }
+  
+  .search-input::placeholder {
+    color: #9ca3af;
+  }
+  
+  .search-input:focus {
+    border-color: #a3a3ff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(163, 163, 255, 0.3);
+  }
+  
+  .search-icon {
+    position: absolute;
+    top: 65%;
+    left: 12px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #9ca3af;
+    pointer-events: none;
+  }
+  

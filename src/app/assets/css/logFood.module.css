@@ -1,0 +1,68 @@
+/* FoodLogger.module.css */
+.foodCard {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tabList
+  {
+    margin-bottom:5%;
+    gap:5%;
+  }
+  .foodCardContent {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .foodCardTitle {
+    font-weight: 600;
+    font-size: 1.125rem;
+  }
+  
+  .foodCardDescription {
+    font-size: 0.875rem;
+    color: #6b7280; /* gray-500 */
+  }
+  
+  .addButton {
+    background-color: #10b981; /* green-500 */
+    color: white;
+    font-size: 1.25rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .addButton:hover {
+    background-color: #059669; /* green-600 */
+  }
+  
+  .summaryCard {
+    padding: 1rem;
+    margin-top: 1rem;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .summaryTitle {
+    font-weight: 600;
+    color: #ef4444; /* red-500 */
+  }
+  
+  .summaryText {
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+  }
+  

@@ -1,0 +1,159 @@
+/* Base styles */
+.diet-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+    /* font-family: 'Segoe UI', sans-serif; */
+    color: #333;
+  }
+  
+  .breadcrumb {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  .breadcrumb .active {
+    color: #000;
+    font-weight: 600;
+  }
+  
+  .title {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 10px 0 20px;
+  }
+  
+  .hero-image img {
+    width: 100%;
+    border-radius: 12px;
+    max-height: 400px;
+    object-fit: cover;
+  }
+  
+  /* Plan Overview */
+  .plan-overview {
+    margin-top: 30px;
+  }
+  
+  .plan-overview h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  
+  .plan-overview p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  /* Key Benefits */
+  .key-benefits {
+    margin-top: 40px;
+  }
+  
+  .key-benefits h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  
+  .benefit-card {
+    background-color: #fff7f0;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+  }
+  
+  .benefit-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .benefit-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .benefit-card p {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .title {
+      font-size: 24px;
+    }
+  
+    .plan-overview h2,
+    .key-benefits h2 {
+      font-size: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .breadcrumb {
+      font-size: 12px;
+    }
+  
+    .benefit-card {
+      padding: 16px;
+    }
+  
+    .benefit-card h3 {
+      font-size: 16px;
+    }
+  
+    .benefit-card p {
+      font-size: 13px;
+    }
+  }
+  /* Radix Tabs Styles */
+.TabsRoot {
+    margin-top: 40px;
+    width: 100%;
+  }
+  
+  .TabsList {
+    display: flex;
+    border-bottom: 2px solid #eee;
+    gap: 20px;
+  }
+  
+  .TabsTrigger {
+    all: unset;
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #555;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+  }
+  
+  .TabsTrigger[data-state='active'] {
+    color: #000;
+    font-weight: 600;
+    border-color: #000;
+  }
+  
+  .TabsContent {
+    padding-top: 20px;
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .TabsList {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .TabsTrigger {
+      width: 100%;
+    }
+  }
+  

@@ -1,0 +1,96 @@
+.matchday-container {
+    padding: 20px 0;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  .section-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+  }
+  
+  .meal-section {
+    margin-bottom: 30px;
+  }
+  
+  .meal-section h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #000;
+  }
+  
+  .meal-section ul {
+    padding-left: 20px;
+    list-style-type: disc;
+  }
+  
+  .hydration-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .hydration-table th,
+  .hydration-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .hydration-table th {
+    background-color: #f9f9f9;
+  }
+  
+  .notes-section {
+    margin-top: 30px;
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 8px;
+  }
+  
+  .notes-section h4 {
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .button-group {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  
+  .btn-primary {
+    background-color: #ff3e3e;
+    color: #fff;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #e23333;
+  }
+  
+  .btn-outline {
+    background-color: transparent;
+    color: #ff3e3e;
+    padding: 10px 16px;
+    border: 1.5px solid #ff3e3e;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-outline:hover {
+    background-color: #ffefef;
+  }
+    

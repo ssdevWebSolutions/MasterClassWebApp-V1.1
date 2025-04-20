@@ -9,14 +9,14 @@ const sidebarItems = [
   { icon: <Calendar />, label: 'Bookings', href: '/Booking' },
   { icon: <BarChart />, label: 'Reports', href: '/reports' },
   { icon: <Play />, label: 'Media', href: '/Media' },
-  { icon: <Heart />, label: 'Nutrition', href: '/nutrition' },
+  { icon: <Heart />, label: 'Nutrition', href: '/Nutrition' },
   { icon: <Dumbbell />, label: 'Fitness', href: '/Fitness' },
-  { icon: <Activity />, label: 'Performance', href: '/performance' },
+  { icon: <Activity />, label: 'Performance', href: '/Performance' },
   { icon: <ShoppingBag />, label: 'Store', href: '/store' },
   { icon: <Users />, label: 'Partners', href: '/partners' },
   { icon: <MessageSquare />, label: 'Chat', href: '/chat' },
   { icon: <Brain />, label: 'Skeleton Tracking', href: '/skeleton-tracking' },
-  { icon: <User/>, label: 'Profile', href: '/profile' },
+  { icon: <User/>, label: 'Profile', href: '/Profile' },
   { icon: <Settings />, label: 'Settings', href: '/settings' },
 ];
 

@@ -38,30 +38,19 @@ export default function CoachingFeedback() {
       
 
   return (
-    <div className="max-w-4xl mx-auto p-4 md:p-8 font-sans">
-      <div className="text-sm text-gray-500 mb-2">Dashboard &gt; Reports &gt; Coaching Feedback</div>
-        <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-1 text-black">Coaching Feedback</h1>
-        <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-6">Review detailed feedback from your coaching sessions</p>
+    <div className="max-w-4xl mx-auto  font-sans">
+    
+         <h3 className="performance-trends-title text-md font-semibold mb-3 sm:text-sm">Search feedback</h3>
 
 
-      <div className="flex items-center space-x-4 border-b border-gray-300 mb-6">
-        <button className="pb-2 border-b-2 border-black text-sm font-medium">Coaching Feedback</button>
-        <button className="pb-2 text-sm text-gray-500">All Reports</button>
-        <button className="pb-2 text-sm text-gray-500">Performance Analysis</button>
-      </div>
-
-      <div className="flex flex-col md:flex-row items-center gap-4 mb-8">
-        <div className="relative w-full md:w-80">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-          <input
-            type="text"
-            placeholder="Search by coach or skill area"
-            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full text-sm focus:outline-none"
-          />
-        </div>
-        <button className="bg-white border border-red-500 text-red-500 px-6 py-2 rounded-full text-sm">
-          Filter
-        </button>
+      {/* Search */}
+      <div className="flex flex-col md:flex-row md:items-center gap-3 mb-6">
+        <input
+          type="text"
+          placeholder="Search by coach, date or keywords"
+          className="flex-1 px-4 py-2 rounded-full border border-gray-300 text-sm focus:outline-none"
+        />
+        <button className="bg-red-500 text-white px-4 py-2 rounded-full text-sm">Filter</button>
       </div>
 
       <h3 className="text-sm sm:text-base md:text-lg font-semibold mb-4 text-black">Recent Coaching Feedback</h3>
@@ -92,7 +81,7 @@ export default function CoachingFeedback() {
 
             {/* Buttons */}
             <div className="flex flex-wrap gap-4 mt-4">
-              <Link href={"/reports/coachingFeedback/battingTechnique"}><button className="bg-red-500 text-white font-bold border border-red-500  text-red-500 px-6 py-2 rounded-full text-sm">
+              <Link href={"/reports/battingTechnique"}><button className="bg-red-500 text-white font-bold border border-red-500  text-red-500 px-6 py-2 rounded-full text-sm">
                 View Detailed Feedback
               </button></Link>
               <button className="bg-white border border-red-500 text-red-500 px-6 py-2 rounded-full text-sm">

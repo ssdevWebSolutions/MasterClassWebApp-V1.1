@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import "../../../assets/css/reports.css";
 
 import AllReports from "./Components/AllReports";
 import CoachingFeedback from "./Components/CoachingFeedback";
@@ -68,21 +67,27 @@ const Reports = () => {
       </p>
 
       {/* Tabs */}
-      <div className="flex flex-wrap gap-4 mb-6 text-sm md:text-base">
-        {Object.entries(tabTitles).map(([key, label]) => (
-          <button
-            key={key}
-            className={`pb-1 font-semibold ${
-              activeTab === key
-                ? "text-black border-b-2 border-black"
-                : "text-gray-400 hover:text-black"
-            }`}
-            onClick={() => setActiveTab(key)}
-          >
-            {label}
-          </button>
-        ))}
-      </div>
+      <div className="w-full mb-6 px-2">
+  <div className="border-b border-gray-200">
+    <div className="flex flex-wrap gap-2 justify-start text-xs sm:text-sm md:text-base">
+      {Object.entries(tabTitles).map(([key, label]) => (
+        <button
+          key={key}
+          className={`pb-2 font-semibold break-words text-left transition-all duration-300 ${
+            activeTab === key
+              ? "text-black border-b-2 border-black"
+              : "text-gray-400 hover:text-black"
+          }`}
+          onClick={() => setActiveTab(key)}
+        >
+          {label}
+        </button>
+      ))}
+    </div>
+  </div>
+</div>
+
+
 
       {/* Tab Content */}
       {renderTabContent()}

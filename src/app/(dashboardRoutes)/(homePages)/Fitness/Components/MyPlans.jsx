@@ -59,41 +59,168 @@ export default function MyTrainingPlans() {
 
       {/* Weekly Schedule */}
       <h2 className="font-semibold text-xl mb-4">Weekly Schedule</h2>
-      <div className="overflow-x-auto">
-        <table className="w-full text-sm mb-10">
-          <thead className="text-gray-500 text-left">
-            <tr>
-              <th className="py-2">Day</th>
-              <th>Workout</th>
-              <th>Duration</th>
-              <th>Intensity</th>
-              <th className="text-center">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {[
-              ['Monday', 'Upper Body Strength', '60 min', 'High Intensity'],
-              ['Tuesday', 'Rest Day', 'Recovery', 'Stretching Optional'],
-              ['Wednesday', 'Lower Body Power', '55 min', 'High Intensity'],
-              ['Thursday', 'Core & Mobility', '45 min', 'Medium Intensity'],
-              ['Friday', 'Full Body Circuit', '50 min', 'High Intensity'],
-              ['Saturday', 'Active Recovery', '30 min', 'Low Intensity'],
-              ['Sunday', 'Rest Day', 'Recovery', 'Stretching Optional']
-            ].map(([day, workout, duration, intensity], i) => (
-              <tr key={i} className="border-b border-gray-400/50 text-gray-700 ">
-                <td className="py-2 flex items-center gap-1"><Calendar size={16} /> {day}</td>
-                <td>{workout}</td>
-                <td>{duration}</td>
-                <td>{intensity}</td>
-                <td className="flex gap-3 justify-center py-2">
-                  <Eye size={16} className="cursor-pointer" />
-                  <Download size={16} className="cursor-pointer" />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      {/* <div className="overflow-x-auto w-full">
+  <table className="min-w-[600px] w-full text-sm mb-10">
+    <thead className="text-gray-500 text-left">
+      <tr>
+        <th className="py-2">Day</th>
+        <th>Workout</th>
+        <th>Duration</th>
+        <th>Intensity</th>
+        <th className="text-center">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Monday', 'Upper Body Strength', '60 min', 'High Intensity'],
+        ['Tuesday', 'Rest Day', 'Recovery', 'Stretching Optional'],
+        ['Wednesday', 'Lower Body Power', '55 min', 'High Intensity'],
+        ['Thursday', 'Core & Mobility', '45 min', 'Medium Intensity'],
+        ['Friday', 'Full Body Circuit', '50 min', 'High Intensity'],
+        ['Saturday', 'Active Recovery', '30 min', 'Low Intensity'],
+        ['Sunday', 'Rest Day', 'Recovery', 'Stretching Optional'],
+      ].map(([day, workout, duration, intensity], i) => (
+        <tr
+          key={i}
+          className="border-b border-gray-400/50 text-gray-700 whitespace-nowrap"
+        >
+          <td className="py-2 flex items-center gap-1">
+            <Calendar size={16} /> {day}
+          </td>
+          <td>{workout}</td>
+          <td>{duration}</td>
+          <td>{intensity}</td>
+          <td className="flex gap-3 justify-center py-2">
+            <Eye size={16} className="cursor-pointer" />
+            <Download size={16} className="cursor-pointer" />
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div> */}
+{/* <div className="w-full">
+  <table className="w-full text-xs sm:text-sm mb-10">
+    <thead className="text-gray-500 text-left">
+      <tr className="text-[10px] sm:text-sm">
+        <th className="py-1 sm:py-2">Day</th>
+        <th>Workout</th>
+        <th>Dur.</th>
+        <th>Intens.</th>
+        <th className="text-center">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Monday', 'Upper Body Strength', '60 min', 'High'],
+        ['Tuesday', 'Rest Day', 'Recovery', 'Stretch'],
+        ['Wednesday', 'Lower Body Power', '55 min', 'High'],
+        ['Thursday', 'Core & Mobility', '45 min', 'Medium'],
+        ['Friday', 'Full Body Circuit', '50 min', 'High'],
+        ['Saturday', 'Active Recovery', '30 min', 'Low'],
+        ['Sunday', 'Rest Day', 'Recovery', 'Stretch'],
+      ].map(([day, workout, duration, intensity], i) => (
+        <tr
+          key={i}
+          className="border-b border-gray-300 text-gray-700 whitespace-nowrap text-[11px] sm:text-sm"
+        >
+          <td className="py-1 flex items-center gap-1">
+            <Calendar size={12} className="text-gray-500" /> {day}
+          </td>
+          <td className="truncate">{workout}</td>
+          <td>{duration}</td>
+          <td>{intensity}</td>
+          <td className="flex gap-2 justify-center py-1">
+            <Eye size={14} className="cursor-pointer" />
+            <Download size={14} className="cursor-pointer" />
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div> */}
+<div className="w-full space-y-4 sm:space-y-0 sm:overflow-x-auto">
+  {/* Mobile View */}
+  <div className="block sm:hidden space-y-4">
+    {[
+      ['Monday', 'Upper Body Strength', '60 min', 'High Intensity'],
+      ['Tuesday', 'Rest Day', 'Recovery', 'Stretching Optional'],
+      ['Wednesday', 'Lower Body Power', '55 min', 'High Intensity'],
+      ['Thursday', 'Core & Mobility', '45 min', 'Medium Intensity'],
+      ['Friday', 'Full Body Circuit', '50 min', 'High Intensity'],
+      ['Saturday', 'Active Recovery', '30 min', 'Low Intensity'],
+      ['Sunday', 'Rest Day', 'Recovery', 'Stretching Optional'],
+    ].map(([day, workout, duration, intensity], i) => (
+      <div
+        key={i}
+        className="rounded-xl border border-gray-200 p-3 text-sm text-gray-800 space-y-2 shadow-sm"
+      >
+       <div className="flex items-center justify-between text-sm text-gray-800">
+          <div className="flex items-center gap-2 font-semibold">
+            <Calendar size={14} className="text-gray-500" /> {day}
+          </div>
+          <div className="flex gap-4 text-gray-600">
+            <Eye size={16} className="cursor-pointer" />
+            <Download size={16} className="cursor-pointer" />
+          </div>
+        </div>
+
+        <div>
+          <span className="font-medium">Workout:</span> {workout}
+        </div>
+        <div>
+          <span className="font-medium">Duration:</span> {duration}
+        </div>
+        <div>
+          <span className="font-medium">Intensity:</span> {intensity}
+        </div>
+        
       </div>
+    ))}
+  </div>
+
+  {/* Desktop View */}
+  <table className="hidden sm:table w-full text-sm mb-10">
+    <thead className="text-gray-500 text-left">
+      <tr>
+        <th className="py-2">Day</th>
+        <th>Workout</th>
+        <th>Duration</th>
+        <th>Intensity</th>
+        <th className="text-center">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Monday', 'Upper Body Strength', '60 min', 'High Intensity'],
+        ['Tuesday', 'Rest Day', 'Recovery', 'Stretching Optional'],
+        ['Wednesday', 'Lower Body Power', '55 min', 'High Intensity'],
+        ['Thursday', 'Core & Mobility', '45 min', 'Medium Intensity'],
+        ['Friday', 'Full Body Circuit', '50 min', 'High Intensity'],
+        ['Saturday', 'Active Recovery', '30 min', 'Low Intensity'],
+        ['Sunday', 'Rest Day', 'Recovery', 'Stretching Optional'],
+      ].map(([day, workout, duration, intensity], i) => (
+        <tr
+          key={i}
+          className="border-b border-gray-300 text-gray-700 whitespace-nowrap"
+        >
+          <td className="py-2 flex items-center gap-1">
+            <Calendar size={16} className="text-gray-500" /> {day}
+          </td>
+          <td>{workout}</td>
+          <td>{duration}</td>
+          <td>{intensity}</td>
+          <td className="flex gap-3 justify-center py-2">
+            <Eye size={16} className="cursor-pointer" />
+            <Download size={16} className="cursor-pointer" />
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+
 
       {/* Available Plans */}
       <h2 className="font-semibold text-xl mb-4">Available Plans</h2>

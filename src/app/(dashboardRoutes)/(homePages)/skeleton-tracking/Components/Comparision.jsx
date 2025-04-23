@@ -9,25 +9,24 @@ export default function TechniqueComparison() {
       {/* Select Reference */}
       <h2 className="text-black font-semibold mb-2">Select Reference</h2>
       <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-8">
-       
-       
-        <div className="flex items-center gap-4">
-          <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Coach Smith" className="w-12 h-12 rounded-full" />
-          <div>
-            <p className="font-medium text-black">Coach Smith, Online</p>
-            <p className="text-gray-500 text-sm">Professional batting technique</p>
-          </div>
-        </div>
-        <div className="flex items-center gap-2 cursor-pointer hover:opacity-80">
-          <CirclePlay className="w-5 h-5 text-black" />
-          <Library className="w-5 h-5 text-black" />
-          <div>
-            <p className="font-medium text-black">Pro Player Library</p>
-            <p className="text-gray-500 text-sm">Collection of professional techniques</p>
-          </div>
-          <ArrowRight className="w-4 h-4 text-black" />
-        </div>
-      </div>
+  <div className="flex items-center gap-4">
+    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Coach Smith" className="w-12 h-12 rounded-full" />
+    <div>
+      <p className="font-medium text-black text-sm sm:text-base">Coach Smith, Online</p>
+      <p className="text-gray-500 text-xs sm:text-sm">Professional batting technique</p>
+    </div>
+  </div>
+  <div className="flex items-center gap-2 cursor-pointer hover:opacity-80">
+    <CirclePlay className="w-5 h-5 text-black" />
+    <Library className="w-5 h-5 text-black" /> {/* Replace with new icon */}
+    <div>
+      <p className="font-medium text-black text-sm sm:text-base">Pro Player Library</p>
+      <p className="text-gray-500 text-xs sm:text-sm">Collection of professional techniques</p>
+    </div>
+    <ArrowRight className="w-4 h-4 text-black" />
+  </div>
+</div>
+
 
       {/* Side-by-Side Comparison */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -42,7 +41,7 @@ export default function TechniqueComparison() {
       </div>
 
       {/* Playback Controls */}
-      <div className="flex flex-wrap justify-center gap-3 mb-8">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
         <button className="bg-red-100 text-red-500 px-4 py-2 rounded-md flex items-center gap-2 text-sm">
           <SkipBack className="w-4 h-4" /> Previous Frame
         </button>
@@ -56,6 +55,7 @@ export default function TechniqueComparison() {
           <RefreshCcw className="w-4 h-4" /> Sync Playback
         </button>
       </div>
+
 
       {/* Key Differences */}
       <h2 className="text-black font-semibold mb-2">Key Differences</h2>

@@ -44,14 +44,17 @@ export default function CoachingFeedback() {
 
 
       {/* Search */}
-      <div className="flex flex-col md:flex-row md:items-center gap-3 mb-6">
+      <div className="flex flex-row items-center gap-2 mb-6">
         <input
           type="text"
           placeholder="Search by coach, date or keywords"
           className="flex-1 px-4 py-2 rounded-full border border-gray-300 text-sm focus:outline-none"
         />
-        <button className="bg-red-500 text-white px-4 py-2 rounded-full text-sm">Filter</button>
+        <button className="bg-red-500 text-white px-4 py-2 rounded-full text-sm whitespace-nowrap">
+          Filter
+        </button>
       </div>
+
 
       <h3 className="text-sm sm:text-base md:text-lg font-semibold mb-4 text-black">Recent Coaching Feedback</h3>
 

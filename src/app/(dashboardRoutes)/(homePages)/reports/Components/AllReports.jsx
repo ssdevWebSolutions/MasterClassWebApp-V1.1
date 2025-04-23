@@ -59,14 +59,16 @@ const AllReports = () => {
 
 
       {/* Search */}
-      <div className="flex flex-col md:flex-row md:items-center gap-3 mb-6">
-        <input
-          type="text"
-          placeholder="Search by coach, date or keywords"
-          className="flex-1 px-4 py-2 rounded-full border border-gray-300 text-sm focus:outline-none"
-        />
-        <button className="bg-red-500 text-white px-4 py-2 rounded-full text-sm">Filter</button>
-      </div>
+      <div className="flex flex-row flex-wrap items-center gap-2 sm:gap-3 mb-6">
+  <input
+    type="text"
+    placeholder="Search by coach, date or keywords"
+    className="flex-1 min-w-0 px-3 py-2 rounded-full border border-gray-300 text-sm focus:outline-none text-[13px] sm:text-sm"
+  />
+  <button className="bg-red-500 text-white px-4 py-2 rounded-full text-[13px] sm:text-sm whitespace-nowrap">
+    Filter
+  </button>
+</div>
 
       {/* Reports */}
       <div className="space-y-4 mb-8">
@@ -76,7 +78,7 @@ const AllReports = () => {
             <h2 className="font-semibold text-lg mb-1 text-black">{report.title}</h2>
             <p className="text-sm text-gray-600 mb-3">{report.description}</p>
             <div className="flex flex-col sm:flex-row gap-2">
-              <Link href={"/reports/technique"}>
+              <Link href={"/reports/battingTechnique"}>
                 <button className="bg-red-500 text-white px-4 py-2 rounded-full text-sm">View Full Report</button>
               </Link>
               <button className="bg-white border border-red-500 text-red-500 px-4 py-2 rounded-full text-sm">

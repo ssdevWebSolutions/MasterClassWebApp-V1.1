@@ -58,7 +58,7 @@ export default function RecommendedPlans() {
       {/* Program Schedule */}
       <div>
         <h2 className="text-lg font-semibold text-gray-900 mb-4">Program Schedule</h2>
-        <div className="overflow-x-auto">
+        {/* <div className="overflow-x-auto">
           <table className="w-full text-left text-sm text-gray-700">
             <thead className="text-gray-500">
               <tr>
@@ -92,7 +92,83 @@ export default function RecommendedPlans() {
               ))}
             </tbody>
           </table>
+        </div> */}
+        <div className="w-full space-y-4 sm:space-y-0 sm:overflow-x-auto">
+  {/* Mobile View */}
+  <div className="block sm:hidden space-y-4">
+    {[
+      ['Monday', 'Upper Body Focus', '45 minutes', 'Beginner'],
+      ['Tuesday', 'Rest Day', 'Recovery', 'All Levels'],
+      ['Wednesday', 'Lower Body Focus', '50 minutes', 'Beginner'],
+      ['Thursday', 'Core & Mobility', '30 minutes', 'Beginner'],
+      ['Friday', 'Full Body Circuit', '45 minutes', 'Beginner'],
+      ['Saturday', 'Active Recovery', '30-60 minutes', 'All Levels'],
+      ['Sunday', 'Rest Day', 'Recovery', 'Stretching Optional'],
+    ].map(([day, focus, time, level], i) => (
+      <div
+        key={i}
+        className="rounded-xl border border-gray-200 p-3 text-sm text-gray-800 space-y-2 shadow-sm"
+      >
+        <div className="flex items-center justify-between text-sm text-gray-800">
+  <div className="font-semibold">{day}</div>
+  <div className="flex gap-4 text-gray-500">
+    <Eye className="w-4 h-4 cursor-pointer" />
+    <Download className="w-4 h-4 cursor-pointer" />
+  </div>
+</div>
+
+        <div>
+          <span className="font-medium">Focus:</span> {focus}
         </div>
+        <div>
+          <span className="font-medium">Duration:</span> {time}
+        </div>
+        <div>
+          <span className="font-medium">Level:</span> {level}
+        </div>
+       
+      </div>
+    ))}
+  </div>
+
+  {/* Desktop View */}
+  <div className="hidden sm:block overflow-x-auto">
+    <table className="w-full text-left text-sm text-gray-700">
+      <thead className="text-gray-500">
+        <tr>
+          <th className="py-2">Day</th>
+          <th>Focus</th>
+          <th>Duration</th>
+          <th>Level</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {[
+          ['Monday', 'Upper Body Focus', '45 minutes', 'Beginner'],
+          ['Tuesday', 'Rest Day', 'Recovery', 'All Levels'],
+          ['Wednesday', 'Lower Body Focus', '50 minutes', 'Beginner'],
+          ['Thursday', 'Core & Mobility', '30 minutes', 'Beginner'],
+          ['Friday', 'Full Body Circuit', '45 minutes', 'Beginner'],
+          ['Saturday', 'Active Recovery', '30-60 minutes', 'All Levels'],
+          ['Sunday', 'Rest Day', 'Recovery', 'Stretching Optional'],
+        ].map(([day, focus, time, level], i) => (
+          <tr key={i} className="border-t">
+            <td className="py-2">{day}</td>
+            <td>{focus}</td>
+            <td>{time}</td>
+            <td>{level}</td>
+            <td className="flex gap-2 items-center py-2">
+              <Eye className="w-4 h-4 text-gray-400 cursor-pointer" />
+              <Download className="w-4 h-4 text-gray-400 cursor-pointer" />
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
+
       </div>
 
       {/* What You'll Need */}

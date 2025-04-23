@@ -43,7 +43,7 @@ const WorkoutHistory = () => {
 
       {/* Recent Workouts Table */}
       <h2 className="text-xl font-semibold mt-10">Recent Workouts</h2>
-      <div className="mt-4 overflow-x-auto">
+      {/* <div className="mt-4 overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
             <tr className="text-left text-gray-600 border-b">
@@ -75,7 +75,84 @@ const WorkoutHistory = () => {
             ))}
           </tbody>
         </table>
+      </div> */}
+      <div className="w-full space-y-4 sm:space-y-0 sm:overflow-x-auto mt-4">
+  {/* Mobile View */}
+  <div className="block sm:hidden space-y-4">
+    {[
+      ['July 15, 2023', 'Upper Body Strength', 'Completed', '45 min', 'High Intensity'],
+      ['July 13, 2023', 'Lower Body Power', 'Completed', '60 min', 'Medium Intensity'],
+      ['July 11, 2023', 'Core Stability', 'Completed', '30 min', 'Low Intensity'],
+      ['July 9, 2023', 'Full Body Circuit', 'Partial', '40 min', 'High Intensity'],
+      ['July 7, 2023', 'Upper Body Strength', 'Completed', '45 min', 'Medium Intensity'],
+    ].map(([date, workout, status, duration, intensity], idx) => (
+      <div
+        key={idx}
+        className="rounded-xl border border-gray-200 p-3 text-sm text-gray-800 space-y-2 shadow-sm"
+      >
+        <div className="flex justify-between items-center text-sm text-gray-800">
+          <div>
+            <span className="font-semibold">Date:</span> {date}
+          </div>
+          <div className="flex gap-3 text-gray-600">
+            <Eye className="w-4 h-4 cursor-pointer" />
+            <MoreVertical className="w-4 h-4 cursor-pointer" />
+          </div>
+        </div>
+
+        <div>
+          <span className="font-medium">Workout:</span> {workout}
+        </div>
+        <div>
+          <span className="font-medium">Status:</span> {status}
+        </div>
+        <div>
+          <span className="font-medium">Duration:</span> {duration}
+        </div>
+        <div>
+          <span className="font-medium">Intensity:</span> {intensity}
+        </div>
+       
       </div>
+    ))}
+  </div>
+
+  {/* Desktop View */}
+  <div className="hidden sm:block overflow-x-auto">
+    <table className="w-full text-sm">
+      <thead>
+        <tr className="text-left text-gray-600 border-b">
+          <th className="py-2">Date</th>
+          <th>Workout</th>
+          <th>Status</th>
+          <th>Duration</th>
+          <th>Intensity</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {[
+          ['July 15, 2023', 'Upper Body Strength', 'Completed', '45 min', 'High Intensity'],
+          ['July 13, 2023', 'Lower Body Power', 'Completed', '60 min', 'Medium Intensity'],
+          ['July 11, 2023', 'Core Stability', 'Completed', '30 min', 'Low Intensity'],
+          ['July 9, 2023', 'Full Body Circuit', 'Partial', '40 min', 'High Intensity'],
+          ['July 7, 2023', 'Upper Body Strength', 'Completed', '45 min', 'Medium Intensity'],
+        ].map((row, idx) => (
+          <tr key={idx} className="border-b hover:bg-gray-50">
+            {row.map((cell, i) => (
+              <td key={i} className="py-2 pr-4 whitespace-nowrap">{cell}</td>
+            ))}
+            <td className="flex items-center space-x-2 py-2">
+              <Eye className="w-4 h-4 text-gray-600 cursor-pointer" />
+              <MoreVertical className="w-4 h-4 text-gray-600 cursor-pointer" />
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
+ 
 
       {/* Performance Chart Placeholder */}
       <h2 className="text-xl font-semibold mt-10">Performance Trends</h2>

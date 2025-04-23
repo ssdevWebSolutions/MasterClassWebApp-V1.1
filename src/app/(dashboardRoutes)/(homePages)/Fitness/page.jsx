@@ -62,7 +62,7 @@ const FitnessPlans = () => {
   ];
 
   return (
-    <div className="max-w-4xl mx-auto p-4 md:p-8 font-sans">
+    <div className="max-w-4xl mx-auto p-4 sm:p-2 md:p-8 font-sans">
       {/* Breadcrumb */}
       <div className="text-sm text-gray-500 mb-2">
         Dashboard &gt; Fitness Plans &gt; {tabTitles[selectedTab] || "Overview"}
@@ -106,26 +106,28 @@ const FitnessPlans = () => {
       </div>
 
       {/* Tab Buttons */}
-      <div className="space-y-4">
-        <div className="flex gap-8 border-b text-black">
-          {tabOptions.map((tab) => (
-            <button
-              key={tab.key}
-              onClick={() => setSelectedTab(tab.key)}
-              className={`pb-2 font-semibold transition-all duration-300 ${
-                selectedTab === tab.key
-                  ? "border-b-2 border-black text-black"
-                  : "text-gray-500 hover:text-black"
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
+      <div className="w-full px-2 space-y-4">
+  {/* Tabs */}
+  <div className="flex flex-wrap gap-2 sm:gap-6 border-b text-xs sm:text-sm md:text-base">
+    {tabOptions.map((tab) => (
+      <button
+        key={tab.key}
+        onClick={() => setSelectedTab(tab.key)}
+        className={`pb-1 font-semibold break-words text-left transition-all duration-300 ${
+          selectedTab === tab.key
+            ? "text-black border-b-2 border-black"
+            : "text-gray-400 hover:text-black"
+        }`}
+      >
+        {tab.label}
+      </button>
+    ))}
+  </div>
 
-        {/* Dynamic Tab Content */}
-        <div className="pt-4">{renderSecondaryTabContent()}</div>
-      </div>
+  {/* Dynamic Tab Content */}
+  <div className="pt-4">{renderSecondaryTabContent()}</div>
+</div>
+
     </div>
   );
 };

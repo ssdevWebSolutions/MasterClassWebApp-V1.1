@@ -95,24 +95,24 @@ export default function RecentAnalysisPage() {
       </div>
 
       {/* Statistics */}
-      <div className="space-y-4">
-        <h2 className="text-lg font-medium">Analysis Statistics</h2>
-        <div className="w-full overflow-auto">
-          <div className="min-w-[500px] h-64 flex items-end justify-around  rounded-lg p-4">
-            {[12, 8, 5, 10, 7, 9].map((val, idx) => (
-              <div key={idx} className="flex flex-col items-center">
-                <div
-                  style={{ height: `${val * 12}px` }}
-                  className="w-16 bg-black rounded"
-                ></div>
-                <p className="text-xs mt-2">
-                  {["Batting", "Bowling", "Fielding", "Footwork", "Balance", "Timing"][idx]}
-                </p>
-              </div>
-            ))}
-          </div>
+      <div className="space-y-4 mt-2 mb-4">
+  <h2 className="text-lg font-medium">Analysis Statistics</h2>
+  <div className="w-full">
+    <div className="w-full h-64 flex items-end justify-between rounded-lg px-2 sm:px-4">
+      {[12, 8, 5, 10, 7, 9].map((val, idx) => (
+        <div key={idx} className="flex flex-col items-center flex-1">
+          <div
+            style={{ height: `${val * 12}px` }}
+            className="w-8 sm:w-10 bg-black rounded transition-all duration-300"
+          ></div>
+          <p className="text-xs sm:text-sm mt-2 text-center break-words">
+            {["Batting", "Bowling", "Fielding", "Footwork", "Balance", "Timing"][idx]}
+          </p>
         </div>
-      </div>
+      ))}
+    </div>
+  </div>
+</div>
 
       {/* Footer Buttons */}
       <div className="flex flex-wrap gap-3">

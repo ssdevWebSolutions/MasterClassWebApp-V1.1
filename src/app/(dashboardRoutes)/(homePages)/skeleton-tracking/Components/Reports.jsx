@@ -37,32 +37,35 @@ export default function PerformanceReports() {
 
       {/* Reports Table */}
       <div className="w-full bg-white rounded-lg">
-        {[
-          ['Batting Technique Analysis', 'Rohit Sharma', 'Rahul Dravid', 'May 20, 2023'],
-          ['Bowling Speed Progression', 'Jasprit Bumrah', 'Zaheer Khan', 'May 18, 2023'],
-          ['Fielding Reflexes Assessment', 'Ravindra Jadeja', 'Jonty Rhodes', 'May 15, 2023'],
-          ['Wicketkeeping Skills Evaluation', 'Rishabh Pant', 'MS Dhoni', 'May 12, 2023'],
-          ['Team Batting Performance', 'Team India U19', 'VVS Laxman', 'May 10, 2023'],
-          ['Spin Bowling Technique', 'Kuldeep Yadav', 'Anil Kumble', 'May 8, 2023'],
-          ['Batting Against Pace', 'Virat Kohli', 'Ravi Shastri', 'May 5, 2023'],
-          ['All-rounder Skills Assessment', 'Hardik Pandya', 'Kapil Dev', 'May 3, 2023']
-        ].map(([title, player, coach, date], index) => (
-          <div key={index} className="flex justify-between items-center py-3 border-b border-black/10 text-sm">
-            <div className="w-full md:w-2/5 font-medium flex items-center space-x-2">
-              <FileText size={16} />
-              <span>{title}</span>
-            </div>
-            <div className="hidden md:flex md:w-1/5 text-gray-700">{player}</div>
-            <div className="hidden md:flex md:w-1/5 text-gray-700">Coach: {coach}</div>
-            <div className="w-24 text-gray-500 text-sm hidden md:block">{date}</div>
-            <div className="flex space-x-3 text-gray-600">
-              <Download size={16} />
-              <Eye size={16} />
-              <Pencil size={16} />
-            </div>
-          </div>
-        ))}
+    {[
+      ['Batting Technique Analysis', 'Rohit Sharma', 'Rahul Dravid', 'May 20, 2023'],
+      ['Bowling Speed Progression', 'Jasprit Bumrah', 'Zaheer Khan', 'May 18, 2023'],
+      ['Fielding Reflexes Assessment', 'Ravindra Jadeja', 'Jonty Rhodes', 'May 15, 2023'],
+      ['Wicketkeeping Skills Evaluation', 'Rishabh Pant', 'MS Dhoni', 'May 12, 2023'],
+      ['Team Batting Performance', 'Team India U19', 'VVS Laxman', 'May 10, 2023'],
+      ['Spin Bowling Technique', 'Kuldeep Yadav', 'Anil Kumble', 'May 8, 2023'],
+      ['Batting Against Pace', 'Virat Kohli', 'Ravi Shastri', 'May 5, 2023'],
+      ['All-rounder Skills Assessment', 'Hardik Pandya', 'Kapil Dev', 'May 3, 2023']
+    ].map(([title, player, coach, date], index) => (
+      <div key={index} className="flex justify-between items-center py-3 border-b border-black/10 text-sm sm:text-xs">
+        <div className="w-full md:w-2/5 font-medium flex items-center space-x-2 text-sm sm:text-xs">
+          <FileText size={16} />
+          <span>{title}</span>
+        </div>
+        <div className="hidden md:flex md:w-1/5 text-gray-700 text-sm sm:text-xs">{player}</div>
+        <div className="hidden md:flex md:w-1/5 text-gray-700 text-sm sm:text-xs">Coach: {coach}</div>
+        <div className="w-24 text-gray-500 text-sm hidden md:block sm:text-xs">{date}</div>
+        <div className="flex space-x-3 text-gray-600">
+          <Download size={16} />
+          <Eye size={16} />
+          <Pencil size={16} />
+        </div>
       </div>
+    ))}
+  </div>
+
+
+
 
       {/* Load More */}
       <div className="text-center mt-4">
@@ -71,24 +74,20 @@ export default function PerformanceReports() {
       </div>
 
       {/* Chart */}
-      <div className="mt-10 w-full overflow-x-auto">
-        <div className="min-w-[600px] h-[280px] flex justify-between items-end border-l border-b pb-2 px-4">
-          {['Batting', 'Bowling', 'Fielding', 'Fitness', 'Strategy', 'Mental'].map((label, i) => (
-            <div key={label} className="flex flex-col items-center">
-              <div
-                className="w-20 bg-black rounded"
-                style={{ height: `${60 - i * 5}px` }}
-              ></div>
-              <div>
-              <span className="text-sm mt-2 rotate-[25deg] whitespace-nowrap">{label}</span>
-              </div>
-         
-            </div>
-              
-          ))}
-           
-        </div>
+      <div className="mt-10 w-full px-4">
+  <div className="w-full h-[280px] flex justify-between items-end border-l border-b pb-4">
+    {['Batting', 'Bowling', 'Fielding', 'Fitness', 'Strategy', 'Mental'].map((label, i) => (
+      <div key={label} className="flex flex-col items-center flex-1">
+        <div
+          className="w-10 sm:w-10 bg-black rounded transition-all duration-300"
+          style={{ height: `${60 - i * 5}px` }}
+        ></div>
+        <span className="text-xs sm:text-sm mt-2 text-center">{label}</span>
       </div>
+    ))}
+  </div>
+</div>
+
 
       {/* Performance Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-10">

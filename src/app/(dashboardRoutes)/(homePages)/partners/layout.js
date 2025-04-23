@@ -24,7 +24,7 @@ export default function DashboardLayout({ children }) {
         /> */}
 
         {/* Scrollable content area */}
-        <main className="flex-1 bg-white  text-black overflow-y-auto p-6 md:p-8 space-y-12">
+        <main className="flex-1 bg-white  text-black overflow-y-auto  space-y-12">
           {children}
         </main>
 

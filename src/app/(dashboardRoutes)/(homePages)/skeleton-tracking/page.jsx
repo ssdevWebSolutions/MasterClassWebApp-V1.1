@@ -90,23 +90,26 @@ const FitnessPlans = () => {
       </div>
 
       {/* Tab Buttons */}
-      <div className="mb-6">
-        <div className="flex gap-8 border-b text-black">
-          {tabOptions.map((tab) => (
-            <button
-              key={tab.key}
-              onClick={() => setSelectedTab(tab.key)}
-              className={`pb-2 font-semibold transition-all duration-300 ${
-                selectedTab === tab.key
-                  ? "border-b-2 border-black text-black"
-                  : "text-gray-500 hover:text-black"
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
-      </div>
+      <div className="w-full mb-6 px-2">
+  <div className="border-b border-gray-200">
+    <div className="flex flex-wrap gap-6 justify-start text-xs sm:text-sm md:text-base">
+      {tabOptions.map((tab) => (
+        <button
+          key={tab.key}
+          onClick={() => setSelectedTab(tab.key)}
+          className={`pb-2 font-semibold break-words text-left transition-all duration-300 ${
+            selectedTab === tab.key
+              ? "text-black border-b-2 border-black"
+              : "text-gray-500 hover:text-black"
+          }`}
+        >
+          {tab.label}
+        </button>
+      ))}
+    </div>
+  </div>
+</div>
+
 
       {/* Dynamic Tab Content */}
       <div className="pt-4">{renderSecondaryTabContent()}</div>

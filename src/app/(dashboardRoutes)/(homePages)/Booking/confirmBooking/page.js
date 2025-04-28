@@ -1,10 +1,28 @@
 "use client"
-import React, { useState } from 'react';
-import "../../../assets/css/booking.css"
+import React, { useEffect, useState } from 'react';
+import "../../../../assets/css/booking.css"
 import { CalendarDays, CreditCard, DollarSign, MapPin, UserRound, Users } from 'lucide-react';
+
+const SESSION_FEE = 75;
 
 const BookingConfirmation = () => {
   const [paymentMethod, setPaymentMethod] = useState('');
+  const [sessions, setSessions] = useState([]);
+
+  useEffect(() => {
+    const storedSessions = sessionStorage.getItem('selectedSessions');
+    if (storedSessions) {
+      setSessions(JSON.parse(storedSessions));
+    }
+  }, []);
+
+  const totalAmount = sessions.length * SESSION_FEE;
+
+  // Helper function to split session text into date and time
+  const parseSession = (sessionString) => {
+    const [date, time] = sessionString.split(' - ');
+    return { date, time };
+  };
 
   return (
     <div className="booking-container">
@@ -13,21 +31,33 @@ const BookingConfirmation = () => {
       </nav>
 
       <div className="session-details-box">
-        <h2 className="session-heading">Session Details</h2>
-        <p className="session-title">Group Batting Session</p>
-        <p className="session-subtitle">Review your booking details before confirming</p>
+        <h2 className="session-heading">Your Selected Sessions</h2>
+
+        {sessions.length > 0 ? (
+          <div className="session-cards">
+            {sessions.map((session, index) => {
+              const { date, time } = parseSession(session);
+              return (
+                <div key={index} className="session-card">
+                  <div className="session-card-header">
+                    <CalendarDays size={20} className="session-icon" />
+                    <div>
+                      <h4 className="session-date">{date}</h4>
+                      <p className="session-time">{time}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <p>No sessions selected.</p>
+        )}
       </div>
 
       <div className="section">
         <h3 className="section-heading">Session Information</h3>
         <ul className="info-list">
-          <li>
-            <span className="icon"><CalendarDays/></span>
-            <div>
-              <p className="label">Date & Time</p>
-              <p className="value">July 15, 2023 • 9:00 AM – 11:00 AM</p>
-            </div>
-          </li>
           <li>
             <span className="icon"><UserRound/></span>
             <div>
@@ -58,8 +88,8 @@ const BookingConfirmation = () => {
           <li>
             <span className="icon"><DollarSign/></span>
             <div>
-              <p className="label">Session Fee</p>
-              <p className="value">$75.00</p>
+              <p className="label">Total Fee</p>
+              <p className="value">${totalAmount.toFixed(2)}</p>
             </div>
           </li>
           <li>

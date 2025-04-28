@@ -144,3 +144,46 @@
     }
   }
   
+
+  /* Cards for each selected session */
+.session-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.session-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 16px;
+  width: 260px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: 0.3s ease;
+}
+
+.session-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.session-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.session-icon {
+  color: #4f46e5;
+}
+
+.session-date {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.session-time {
+  font-size: 14px;
+  color: #6b7280;
+}

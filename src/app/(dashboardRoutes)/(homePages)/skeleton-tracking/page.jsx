@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
-import { useSearchParams } from "next/navigation";
+import React, { useEffect, useState } from "react";
 import { CalendarDays, Clock, Dumbbell, FileText, FileUp, LineChart } from "lucide-react";
 import { Button } from "@/app/Components/ui/button";
 import Link from "next/link";
@@ -23,9 +22,16 @@ const mainTitles = {
 };
 
 const FitnessPlans = () => {
-  const searchParams = useSearchParams();
-  const initialTab = searchParams.get("tab") || "videoAnalysis";
-  const [selectedTab, setSelectedTab] = useState(initialTab);
+  const [selectedTab, setSelectedTab] = useState("videoAnalysis");
+
+  // On initial render, set tab from URL if available
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const tab = searchParams.get("tab");
+    if (tab && tabTitles[tab]) {
+      setSelectedTab(tab);
+    }
+  }, []);
 
   const renderSecondaryTabContent = () => {
     switch (selectedTab) {
@@ -65,7 +71,9 @@ const FitnessPlans = () => {
           <p className="text-sm font-semibold mb-2">Upload Video</p>
           <p className="text-sm text-gray-500">Upload or record a video for motion analysis</p>
           <div className="mt-4 flex gap-2">
-            <Link href={"/skeleton-tracking/upload-video"}> <button className="bg-red-500 text-white px-4 py-1 rounded-md text-sm">Upload Video</button></Link>
+            <Link href={"/skeleton-tracking/upload-video"}>
+              <button className="bg-red-500 text-white px-4 py-1 rounded-md text-sm">Upload Video</button>
+            </Link>
             <button className="bg-red-500 text-white px-4 py-1 rounded-md text-sm">Record Now</button>
           </div>
         </div>
@@ -75,7 +83,9 @@ const FitnessPlans = () => {
           <p className="text-sm font-semibold mb-2">Recent Analysis</p>
           <p className="text-sm text-gray-500">Continue working on your recent analysis</p>
           <div className="mt-4">
-            <Link href={"/skeleton-tracking/recent-analysis"}><button className="bg-red-500 text-white px-4 py-1 rounded-md text-sm">View Recent</button></Link>
+            <Link href={"/skeleton-tracking/recent-analysis"}>
+              <button className="bg-red-500 text-white px-4 py-1 rounded-md text-sm">View Recent</button>
+            </Link>
           </div>
         </div>
         <div className="bg-red-50 p-4 rounded-xl">
@@ -91,25 +101,24 @@ const FitnessPlans = () => {
 
       {/* Tab Buttons */}
       <div className="w-full mb-6 px-2">
-  <div className="border-b border-gray-200">
-    <div className="flex flex-wrap gap-6 justify-start text-xs sm:text-sm md:text-base">
-      {tabOptions.map((tab) => (
-        <button
-          key={tab.key}
-          onClick={() => setSelectedTab(tab.key)}
-          className={`pb-2 font-semibold break-words text-left transition-all duration-300 ${
-            selectedTab === tab.key
-              ? "text-black border-b-2 border-black"
-              : "text-gray-500 hover:text-black"
-          }`}
-        >
-          {tab.label}
-        </button>
-      ))}
-    </div>
-  </div>
-</div>
-
+        <div className="border-b border-gray-200">
+          <div className="flex flex-wrap gap-6 justify-start text-xs sm:text-sm md:text-base">
+            {tabOptions.map((tab) => (
+              <button
+                key={tab.key}
+                onClick={() => setSelectedTab(tab.key)}
+                className={`pb-2 font-semibold break-words text-left transition-all duration-300 ${
+                  selectedTab === tab.key
+                    ? "text-black border-b-2 border-black"
+                    : "text-gray-500 hover:text-black"
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* Dynamic Tab Content */}
       <div className="pt-4">{renderSecondaryTabContent()}</div>

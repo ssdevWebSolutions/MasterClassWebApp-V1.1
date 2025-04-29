@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { useSearchParams } from "next/navigation";
 import FitnessPage from "./Components/FitnessPlans";
 import { CalendarDays, Dumbbell, LineChart } from "lucide-react";
 import { Button } from "@/app/Components/ui/button";
@@ -10,11 +9,9 @@ import MyTrainingPlans from "./Components/MyPlans";
 import RecommendedPlans from "./Components/Recommended";
 import Link from "next/link";
 
-// Placeholder for recommended content
-
 // Titles and Subtitles for each tab
 const tabTitles = {
-  calendar: "calendar",
+  calendar: "Calendar",
   history: "Workout History",
   myPlans: "My Plans",
   recommended: "Recommended",
@@ -35,9 +32,7 @@ const subTitles = {
 };
 
 const FitnessPlans = () => {
-  const searchParams = useSearchParams();
-  const initialTab = searchParams.get("tab") || "calendar";
-  const [selectedTab, setSelectedTab] = useState(initialTab);
+  const [selectedTab, setSelectedTab] = useState("calendar");
 
   const renderSecondaryTabContent = () => {
     switch (selectedTab) {
@@ -65,12 +60,12 @@ const FitnessPlans = () => {
     <div className="max-w-4xl mx-auto p-4 sm:p-2 md:p-8 font-sans">
       {/* Breadcrumb */}
       <div className="text-sm text-gray-500 mb-2">
-        Dashboard &gt; Fitness Plans &gt; {tabTitles[selectedTab] || "Overview"}
+        Dashboard &gt; Fitness Plans &gt; {tabTitles[selectedTab]}
       </div>
 
       {/* Title and Subtitle */}
       <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-1">
-        {mainTitles[selectedTab] || "Performance Reports"}
+        {mainTitles[selectedTab]}
       </h1>
       <p className="text-gray-500 mb-6 text-sm md:text-base">
         {subTitles[selectedTab]}
@@ -101,33 +96,33 @@ const FitnessPlans = () => {
           <p className="text-sm text-gray-600">
             Core Strength - Tomorrow 6:00 AM
           </p>
-          <Link href={"/Fitness/workoutSessions"}><Button className="mt-2 bg-red-500 hover:bg-red-600 text-white"> Preview</Button></Link>
+          <Link href={"/Fitness/workoutSessions"}>
+            <Button className="mt-2 bg-red-500 hover:bg-red-600 text-white">
+              Preview
+            </Button>
+          </Link>
         </div>
       </div>
 
       {/* Tab Buttons */}
-      <div className="w-full px-2 space-y-4">
-  {/* Tabs */}
-  <div className="flex flex-wrap gap-2 sm:gap-6 border-b text-xs sm:text-sm md:text-base">
-    {tabOptions.map((tab) => (
-      <button
-        key={tab.key}
-        onClick={() => setSelectedTab(tab.key)}
-        className={`pb-1 font-semibold break-words text-left transition-all duration-300 ${
-          selectedTab === tab.key
-            ? "text-black border-b-2 border-black"
-            : "text-gray-400 hover:text-black"
-        }`}
-      >
-        {tab.label}
-      </button>
-    ))}
-  </div>
+      <div className="flex flex-wrap gap-2 sm:gap-6 border-b text-xs sm:text-sm md:text-base">
+        {tabOptions.map((tab) => (
+          <button
+            key={tab.key}
+            onClick={() => setSelectedTab(tab.key)}
+            className={`pb-1 font-semibold break-words text-left transition-all duration-300 ${
+              selectedTab === tab.key
+                ? "text-black border-b-2 border-black"
+                : "text-gray-400 hover:text-black"
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
 
-  {/* Dynamic Tab Content */}
-  <div className="pt-4">{renderSecondaryTabContent()}</div>
-</div>
-
+      {/* Tab Content */}
+      <div className="mt-6">{renderSecondaryTabContent()}</div>
     </div>
   );
 };

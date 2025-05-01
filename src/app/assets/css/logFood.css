@@ -21,7 +21,7 @@
   }
   
   [data-state="active"] {
-    border-bottom: 2px solid #10b981;
+    border-bottom: 2px solid #000000;
     font-weight: 600;
   }
   

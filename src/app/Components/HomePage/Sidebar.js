@@ -12,7 +12,7 @@ const sidebarItems = [
   { icon: <Heart />, label: 'Nutrition', href: '/Nutrition' },
   { icon: <Dumbbell />, label: 'Fitness', href: '/Fitness' },
   { icon: <Activity />, label: 'Performance', href: '/Performance' },
-  { icon: <ShoppingBag />, label: 'Store', href: '/store' },
+  { icon: <ShoppingBag />, label: 'Store', href: '/Store' },
   { icon: <Users />, label: 'Partners', href: '/partners' },
   { icon: <MessageSquare />, label: 'Chat', href: '/chat' },
   { icon: <PersonStanding />, label: 'Skeleton Tracking', href: '/skeleton-tracking' },

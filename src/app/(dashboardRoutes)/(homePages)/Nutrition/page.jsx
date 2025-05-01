@@ -1,6 +1,8 @@
+"use client"
 import React from 'react';
 import '../../../assets/css/nutritionDashboard.css';
 import WeeklyCalorieBarChart from '@/app/Components/NutritionDashboard/WeeklyCalorieBarChart';
+import { useRouter } from 'next/navigation';
 
 // Separated chart data (though we're not using it in this version)
 const calorieData = [
@@ -14,6 +16,40 @@ const calorieData = [
 ];
 
 const NutritionDashboard = () => {
+
+  const router=useRouter();
+  const handleLogFoodRouting=(item)=>{
+    // console.log(item);
+    if(item=="Breakfast")
+    {
+      router.push("/Nutrition/logFood");
+    }
+  }
+
+  const handlePlanRouting=(planbtn,plan)=>{
+    console.log(planbtn,plan)
+    if(planbtn==true && plan=="Muscle Building Plan" )
+    {
+      router.push("/Nutrition/muscleBuildingPlanPreview")
+    }
+    else if(planbtn==true && plan=="Recovery Nutrition" )
+    {
+      router.push("/Nutrition/recoveryNutritionPreview")
+    }
+    else if(planbtn=="Buy Plan" && plan=="Muscle Building Plan")
+    {
+      router.push()
+    }
+    else if(planbtn=="Buy Plan" && plan=="Recovery Nutrition")
+    {
+      router.push()
+    }
+    else if(planbtn=="View Plan")
+    {
+      router.push("/Nutrition/cricketPerformanceDiet");
+    }
+  }
+
   return (
     <div className="nutrition-dashboard">
       <h2 className="title">Nutrition Dashboard</h2>
@@ -32,7 +68,7 @@ const NutritionDashboard = () => {
               <p>
                 {item.cals} calories • {item.protein}g protein • {item.carbs}g carbs • {item.fat}g fat
               </p>
-              <button className="log-btn">Log Food</button>
+              <button className="log-btn" onClick={()=>handleLogFoodRouting(item.title)}>Log Food</button>
             </div>
           ))}
         </div>
@@ -96,8 +132,8 @@ const NutritionDashboard = () => {
               <h4>{plan.title}</h4>
               <p>{plan.desc}</p>
               <div className="meal-buttons">
-                <button className="btn primary">{plan.btn}</button>
-                {plan.locked && <button className="btn secondary">Preview</button>}
+                <button className="btn primary" onClick={()=>handlePlanRouting(plan.btn,plan.title)}>{plan.btn}</button>
+                {plan.locked && <button className="btn secondary" onClick={()=>handlePlanRouting(plan.locked,plan.title)}>Preview</button>}
               </div>
             </div>
           ))}

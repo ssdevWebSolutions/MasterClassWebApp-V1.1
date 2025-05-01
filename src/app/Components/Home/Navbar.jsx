@@ -26,14 +26,14 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="border-b border-gray-300 shadow-sm px-4 md:px-8 py-4 flex justify-between items-center">
+    <nav className="border-b border-gray-300  px-4 md:px-8 py-4 flex justify-between items-center">
       {/* Logo or Name */}
-      <div
+      {/* <div
         className="text-red-600 font-extrabold text-xl cursor-pointer"
         onClick={() => router.push("/")}
       >
         MyWebsite
-      </div>
+      </div> */}
 
       {/* Desktop Menu */}
       <div className="hidden md:flex gap-6 text-red-600 font-bold items-center">

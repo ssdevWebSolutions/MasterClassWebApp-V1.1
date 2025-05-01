@@ -15,8 +15,8 @@ const sidebarItems = [
   { icon: <ShoppingBag />, label: 'Store', href: '/Store' },
   { icon: <Users />, label: 'Partners', href: '/partners' },
   { icon: <MessageSquare />, label: 'Chat', href: '/chat' },
-  { icon: <Brain />, label: 'Skeleton Tracking', href: '/skeleton-tracking' },
-  { icon: <User/>, label: 'Profile', href: '/Profile' },
+  { icon: <PersonStanding />, label: 'Skeleton Tracking', href: '/skeleton-tracking' },
+  { icon: <User/>, label: 'Profile', href: '/profile' },
   { icon: <Settings />, label: 'Settings', href: '/settings' },
 ];
 

@@ -30,20 +30,24 @@ const performanceData = [
 
 export default function TechniqueReport() {
   return (
-    <div className="max-w-4xl mx-auto p-4 md:p-8 font-sans">
-      <div className="text-sm text-gray-500 mb-4">
-        Dashboard &gt; Reports &gt; Batting Technique Session
-      </div>
+    <div className="max-w-4xl mx-auto font-sans">
+      
+  <div className="max-w-4xl mx-auto font-sans">
+  <div className="flex items-center justify-between mb-6">
+    <div className="text-sm  md:text-lg text-gray-500 sm:text-sm leading-snug">
+      <p>June 15, 2023 · 10:30 AM</p>
+      <p>Coach: David Warner</p>
+    </div>
+    <button className="bg-red-500 text-white px-2 py-1 text-xs sm:px-4 sm:py-2 sm:text-sm  md:w-44 md:h-10 h-10 rounded-full flex items-center justify-center whitespace-normal">
+      <Download className="w-4 h-4" />
+      <span className="block sm:inline">Download</span>
+      <span className="block sm:inline">PDF</span>
+    </button>
+  </div>
+</div>
 
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-gray-800">Batting Technique Session Report</h1>
-        <button className="bg-red-500 text-white px-4 py-2 text-sm rounded-full flex items-center gap-2">
-          <Download className="w-4 h-4" />
-          Download PDF
-        </button>
-      </div>
 
-      <p className="text-sm text-gray-500 mb-6">June 15, 2023 · 10:30 AM · Coach: David Warner</p>
+
 
       {/* Session Summary */}
       <div className="bg-red-50 p-4 rounded-xl mb-6">

@@ -1,7 +1,15 @@
 "use client";
 
 import React from "react";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 import { Eye, Download } from "lucide-react";
 import Link from "next/link";
 
@@ -43,31 +51,24 @@ const sessionReports = [
   { title: "Match Simulation", coach: "Virat Kohli", date: "April 24, 2023" },
 ];
 
-const Reports = () => {
+const AllReports = () => {
   return (
-    <div className="max-w-4xl mx-auto p-4 md:p-8 font-sans">
-      <div className="text-sm text-gray-500 mb-2">Dashboard &gt; Reports</div>
-      <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-1">Performance Reports</h1>
-      <p className="text-gray-500 mb-6 text-sm md:text-base">
-        View your coaching session feedback and performance evaluations
-      </p>
+    <div className="">
+    
+    <h3 className="performance-trends-title text-md font-semibold mb-3 sm:text-sm">Search Reports</h3>
 
-      {/* Tabs */}
-      <div className="flex flex-wrap gap-4 mb-6 text-sm md:text-base">
-        <button className="font-semibold text-black border-b-2 border-black pb-1">All Reports</button>
-        <Link href={"/reports/coachingFeedback"}><button className="text-gray-400 hover:text-black">Coaching Feedback</button></Link>
-        <button className="text-gray-400 hover:text-black">Performance Analysis</button>
-      </div>
 
       {/* Search */}
-      <div className="flex flex-col md:flex-row md:items-center gap-3 mb-6">
-        <input
-          type="text"
-          placeholder="Search by coach, date or keywords"
-          className="flex-1 px-4 py-2 rounded-full border border-gray-300 text-sm focus:outline-none"
-        />
-        <button className="bg-red-500 text-white px-4 py-2 rounded-full text-sm">Filter</button>
-      </div>
+      <div className="flex flex-row flex-wrap items-center gap-2 sm:gap-3 mb-6">
+  <input
+    type="text"
+    placeholder="Search by coach, date or keywords"
+    className="flex-1 min-w-0 px-3 py-2 rounded-full border border-gray-300 text-sm focus:outline-none text-[13px] sm:text-sm"
+  />
+  <button className="bg-red-500 text-white px-4 py-2 rounded-full text-[13px] sm:text-sm whitespace-nowrap">
+    Filter
+  </button>
+</div>
 
       {/* Reports */}
       <div className="space-y-4 mb-8">
@@ -77,7 +78,9 @@ const Reports = () => {
             <h2 className="font-semibold text-lg mb-1 text-black">{report.title}</h2>
             <p className="text-sm text-gray-600 mb-3">{report.description}</p>
             <div className="flex flex-col sm:flex-row gap-2">
-              <Link href={"/reports/technique"}><button className="bg-red-500 text-white px-4 py-2 rounded-full text-sm">View Full Report</button></Link>
+              <Link href={"/reports/battingTechnique"}>
+                <button className="bg-red-500 text-white px-4 py-2 rounded-full text-sm">View Full Report</button>
+              </Link>
               <button className="bg-white border border-red-500 text-red-500 px-4 py-2 rounded-full text-sm">
                 Download PDF
               </button>
@@ -88,18 +91,17 @@ const Reports = () => {
 
       {/* Chart */}
       <div className="mb-8">
-        <h3 className="text-md font-semibold mb-4">Performance Trends</h3>
-        <div className="bg-white rounded-xl shadow-md p-4 w-full">
-        <ResponsiveContainer width="100%" height={250}>
-  <BarChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 5 }}>
-    <CartesianGrid strokeDasharray="3 3" />
-    <XAxis dataKey="name" />
-    <YAxis />
-    <Tooltip />
-    <Bar dataKey="uv" fill="black" barSize={80} radius={[10, 10, 0, 0]} />
-  </BarChart>
-</ResponsiveContainer>
-
+        <h3 className="performance-trends-title text-md font-semibold mb-4 sm:text-sm">Performance Trends</h3>
+        <div className="bg-white rounded-xl shadow-md p-4 sm:p-1 w-full">
+          <ResponsiveContainer width="100%" height={250}>
+            <BarChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 5 }}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" tick={{ fontSize: 12 }} />
+              <YAxis tick={{ fontSize: 12 }} />
+              <Tooltip contentStyle={{ fontSize: "12px" }} />
+              <Bar dataKey="uv" fill="black" barSize={60} radius={[10, 10, 0, 0]} />
+            </BarChart>
+          </ResponsiveContainer>
         </div>
       </div>
 
@@ -130,4 +132,4 @@ const Reports = () => {
   );
 };
 
-export default Reports;
+export default AllReports;

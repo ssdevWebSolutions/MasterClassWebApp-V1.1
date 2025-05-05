@@ -23,10 +23,10 @@ export default function DashboardLayout({ children }) {
 
       {/* Right side: header, main content (scrollable), footer */}
       <div className="flex-1 bg-white text-black flex flex-col overflow-hidden">
-        {/* <Header
+        {/*   <Header
           userName="Samuel"
           message="Ready to master your next session?"
-        /> */}
+        /> }
 
         {/* Scrollable content area */}
         <main className="flex-1 bg-white  text-black overflow-y-auto  space-y-12">

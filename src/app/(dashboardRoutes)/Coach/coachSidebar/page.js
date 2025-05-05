@@ -1,18 +1,18 @@
 // File: HomePage/Sidebar.js
 "use client"
-import { Home,  BarChart, Play,   Users, MessageSquare, Settings,  Menu,  User, PersonStanding } from 'lucide-react';
+import { Home,  BarChart, Play,   Users, MessageSquare, Settings,  Menu,  User, PersonStanding, Book, BookAIcon, BookDashedIcon } from 'lucide-react';
 import { useState } from 'react';
 import Link from 'next/link';
 
 const sidebarItems = [
   { icon: <Home />, label: 'Dashboard', href: '/dashboard' },
- 
+  { icon: <Book />, label: 'Session', href: '../Coach/Sessions' },
   { icon: <BarChart />, label: 'Reports', href: '/reports' },
   { icon: <Play />, label: 'Media', href: '/Media' },
  
  
   { icon: <MessageSquare />, label: 'Chat', href: '/chat' },
- 
+  
   { icon: <Users />, label: 'Attendance', href: '/partners' },
   { icon: <PersonStanding />, label: 'Nutrition', href: '/skeleton-tracking' },
   { icon: <User/>, label: 'Profile', href: '/profile' },
